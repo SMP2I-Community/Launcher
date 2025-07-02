@@ -134,6 +134,8 @@ func _send_skin(player_name: String):
 	skin_github_files.send_file(get_skin_path(), "skins/%s.png" % player_name, skin_sha, "bot_%s" % player_name, "Update skin")
 
 func _send_cape(player_name: String):
+	if not FileAccess.file_exists(get_cape_path()):
+		return
 	capes_github_files.send_file(get_cape_path(), "capes/%s.png" % player_name, cape_sha, "bot_%s" % player_name, "Update cape")
 
 

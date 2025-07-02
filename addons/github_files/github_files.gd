@@ -69,6 +69,7 @@ class GithubFileData extends RefCounted:
 		self.sha = sha
 	
 	func save(to: String):
+		DirAccess.make_dir_recursive_absolute(to.get_base_dir())
 		var buffer := Marshalls.base64_to_raw(content)
 		var file = FileAccess.open(to, FileAccess.WRITE)
 		file.store_buffer(buffer)
