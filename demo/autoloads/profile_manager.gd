@@ -3,8 +3,8 @@ extends Node
 signal skin_updated
 signal cape_updated
 
-const SKIN_PATH := "user://skin.png"
-const CAPE_PATH := "user://cape.png"
+const SKIN_PATH := "user://CustomSkinLoader/LocalSkin/skins/%s.png"
+const CAPE_PATH := "user://CustomSkinLoader/LocalSkin/capes/%s.png"
 
 const MINECRAFT_UUID = "https://api.mojang.com/users/profiles/minecraft/%s"
 const MINECRAFT_PROFILE = "https://sessionserver.mojang.com/session/minecraft/profile/%s"
@@ -26,23 +26,29 @@ func set_player_name(value: String):
 	profile.player_name = value if value.replace(" ", "") != "" else "Player"
 	profile.save_profile()
 	
-	if not FileAccess.file_exists(SKIN_PATH):
+	if not FileAccess.file_exists(get_skin_path()):
 		skin_download_timer.start()
 
+func get_skin_path():
+	return SKIN_PATH % get_player_name()
+
+func get_cape_path():
+	return CAPE_PATH % get_player_name()
+
 func set_skin(path):
-	DirAccess.copy_absolute(path, SKIN_PATH)
+	DirAccess.copy_absolute(path, get_skin_path())
 	skin_updated.emit()
 
 func set_cape(path):
-	DirAccess.copy_absolute(path, CAPE_PATH)
+	DirAccess.copy_absolute(path, get_cape_path())
 	cape_updated.emit()
 
 func get_player_name() -> String:
 	return profile.player_name
 
 func get_skin() -> Texture2D:
-	if FileAccess.file_exists(SKIN_PATH):
-		var image = Image.load_from_file(SKIN_PATH)
+	if FileAccess.file_exists(get_skin_path()):
+		var image = Image.load_from_file(get_skin_path())
 		var texture = ImageTexture.create_from_image(image)
 		return texture
 	return UNKOWN_SKIN
@@ -60,7 +66,7 @@ func download_github_skin(save := true) -> bool:
 	
 	skin_sha = file.sha
 	if save:
-		file.save(SKIN_PATH)
+		file.save(get_skin_path())
 	return true
 
 func download_cape():
@@ -74,18 +80,18 @@ func download_github_cape(save := true) -> bool:
 	
 	cape_sha = file.sha
 	if save:
-		file.save(CAPE_PATH)
+		file.save(get_cape_path())
 	return true
 
 func get_cape():
-	if FileAccess.file_exists(CAPE_PATH):
-		var image = Image.load_from_file(CAPE_PATH)
+	if FileAccess.file_exists(get_cape_path()):
+		var image = Image.load_from_file(get_cape_path())
 		var texture = ImageTexture.create_from_image(image)
 		return texture
 	return null
 
 func download_minecraft_skin() -> bool:
-	if FileAccess.file_exists(SKIN_PATH):
+	if FileAccess.file_exists(get_skin_path()):
 		return true
 	
 	var player_data = (await downloader.do_get(MINECRAFT_UUID % profile.player_name)).json()
@@ -113,7 +119,7 @@ func download_minecraft_skin() -> bool:
 			break
 	
 	if skin_data:
-		await downloader.do_file(skin_data["textures"]["SKIN"]["url"], SKIN_PATH)
+		await downloader.do_file(skin_data["textures"]["SKIN"]["url"], get_skin_path())
 		print_debug("Minecraft skin downloaded")
 		return true
 	
@@ -125,10 +131,10 @@ func send_to_github():
 	_send_cape(get_player_name())
 
 func _send_skin(player_name: String):
-	skin_github_files.send_file(SKIN_PATH, "skins/%s.png" % player_name, skin_sha, "bot_%s" % player_name, "Update skin")
+	skin_github_files.send_file(get_skin_path(), "skins/%s.png" % player_name, skin_sha, "bot_%s" % player_name, "Update skin")
 
 func _send_cape(player_name: String):
-	capes_github_files.send_file(CAPE_PATH, "capes/%s.png" % player_name, cape_sha, "bot_%s" % player_name, "Update cape")
+	capes_github_files.send_file(get_cape_path(), "capes/%s.png" % player_name, cape_sha, "bot_%s" % player_name, "Update cape")
 
 
 func _on_skin_download_timer_timeout() -> void:
