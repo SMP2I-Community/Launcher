@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="JavaDownloader" load_steps=2 format=3 uid="uid://dgyxcs8ol60sx"]
+
+[ext_resource type="Script" uid="uid://2i2tiwcurk8j" path="res://addons/minecraft_launcher/java_downloader.gd" id="1_ubgqk"]
+
+[resource]
+script = ExtResource("1_ubgqk")
+java_major_version = "8"
+url = "http://127.0.0.1:5000/java8"
+exe_path = "openjdk8/java-se-8u42-ri/bin/java"
+sha1 = ""

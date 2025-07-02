@@ -1,0 +1,98 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[Launcher]
+
+Paths/Backgrounds="user://backgrounds"
+Paths/Config="user://config.cfg"
+Paths/CurseForgeApiKeyPath="res://curseforge_api.key"
+
+[application]
+
+config/name="SMP2I Launcher"
+config/version="1.0.0"
+run/main_scene="res://demo/main.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="smp2i"
+config/features=PackedStringArray("4.4")
+boot_splash/bg_color=Color(0.976471, 0.984314, 0.976471, 1)
+boot_splash/show_image=false
+config/icon="res://icon.svg"
+config/windows_native_icon="res://icon.ico"
+
+[autoload]
+
+Config="*res://demo/autoloads/config.gd"
+ProfileManager="*res://demo/autoloads/profile_manager.tscn"
+Utils="*res://addons/minecraft/utils.gd"
+
+[debug]
+
+file_logging/enable_file_logging.pc=false
+
+[display]
+
+window/subwindows/embed_subwindows=false
+
+[editor_plugins]
+
+enabled=PackedStringArray()
+
+[file_customization]
+
+folder_colors={
+"res://demo/assets/materials/": "yellow",
+"res://demo/assets/textures/": "blue"
+}
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/channel_pack": 0,
+"compress/hdr_compression": 1,
+"compress/lossy_quality": 0.7,
+"compress/mode": 3,
+"compress/normal_map": 0,
+"detect_3d/compress_to": 0,
+"mipmaps/generate": true,
+"mipmaps/limit": -1,
+"process/fix_alpha_border": true,
+"process/hdr_as_srgb": false,
+"process/hdr_clamp_exposure": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"process/size_limit": 0,
+"roughness/mode": 0,
+"roughness/src_normal": ""
+}
+
+[input]
+
+debug_change_background={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+fullscreen_shortcut={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194342,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+click_cape={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(232, 20),"global_position":Vector2(236, 61),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.971345, 0.971661, 0.992301, 1)
+anti_aliasing/quality/use_taa=true

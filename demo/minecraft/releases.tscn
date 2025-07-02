@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtw5lk0o3nfi0"]
+
+[ext_resource type="Script" uid="uid://kr3i7x1bwd4h" path="res://demo/minecraft/releases.gd" id="1_ghh8i"]
+[ext_resource type="Script" uid="uid://yy02e2l4h346" path="res://addons/github_releases/latest_release.gd" id="1_pnse1"]
+
+[node name="Releases" type="Node"]
+script = ExtResource("1_ghh8i")
+
+[node name="CapesRelease" type="Node" parent="."]
+script = ExtResource("1_pnse1")
+owner_name = "SMP2I-Community"
+repository = "Capes"
+to_folder = "user://capes"
+metadata/_custom_type_script = "uid://yy02e2l4h346"
+
+[node name="OverridesRelease" type="Node" parent="."]
+script = ExtResource("1_pnse1")
+owner_name = "SMP2I-Community"
+repository = "Overrides"
+PROGRESS_INSTALLED_VALUE = 250
+metadata/_custom_type_script = "uid://yy02e2l4h346"
+
+[connection signal="installed" from="CapesRelease" to="." method="_on_capes_release_installed"]
+[connection signal="installed" from="OverridesRelease" to="." method="_on_overrides_release_installed"]

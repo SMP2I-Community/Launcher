@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://xwk0ntwmdllu"]
+
+[ext_resource type="Script" uid="uid://cet6ug76frain" path="res://addons/minecraft/libraries/libraries.gd" id="1_cdu6v"]
+[ext_resource type="Script" uid="uid://py0w26ir5v1h" path="res://addons/minecraft/threader.gd" id="2_a7ile"]
+
+[node name="Libraries" type="Node"]
+script = ExtResource("1_cdu6v")
+metadata/_custom_type_script = "uid://cet6ug76frain"
+
+[node name="ArtifactThreader" type="Node" parent="."]
+script = ExtResource("2_a7ile")
+metadata/_custom_type_script = "uid://py0w26ir5v1h"
+
+[node name="NativesThreader" type="Node" parent="."]
+script = ExtResource("2_a7ile")
+metadata/_custom_type_script = "uid://py0w26ir5v1h"
+
+[connection signal="finished" from="ArtifactThreader" to="." method="_on_artifact_threader_finished"]

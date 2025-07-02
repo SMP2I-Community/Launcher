@@ -1,0 +1,153 @@
+[gd_scene load_steps=10 format=4 uid="uid://b4g3n1yv8esqa"]
+
+[ext_resource type="Theme" uid="uid://dmajl82kqvoml" path="res://demo/assets/themes/main_theme.tres" id="1_43875"]
+[ext_resource type="Material" uid="uid://8takg5xmbcdn" path="res://demo/assets/materials/cape.tres" id="1_bfop1"]
+[ext_resource type="Script" uid="uid://btietwqvv00fd" path="res://demo/menus/cape_item.gd" id="1_iv0hx"]
+
+[sub_resource type="Environment" id="Environment_gqh3r"]
+background_mode = 1
+background_color = Color(1, 1, 1, 1)
+
+[sub_resource type="World3D" id="World3D_6dxwg"]
+environment = SubResource("Environment_gqh3r")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7cbna"]
+_surfaces = [{
+"aabb": AABB(-0.25, -2.66667, -1.25, 0.5, 2.66667, 2.50001),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAHAAMAAgAGAAcABgAFAAcABgAEAAUABAABAAUABAAAAAEAAgAEAAYAAgAAAAQABwABAAMABwAFAAEA"),
+"name": "CapeMaterial",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP7/AAAAAP///v8AAAAAAAAAAAAAAAD//wAAAAD//wAA/v8AAP/////+/wAA//8AAAAAAAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xdqdl"]
+resource_name = "cape_Cube_013"
+_surfaces = [{
+"aabb": AABB(-0.25, -2.66667, -1.25, 0.5, 2.66667, 2.50001),
+"attribute_data": PackedByteArray("/yv/h/9TAAD/K/+H/yv/B/8DAAD/K/8H/wP/h/8rAAD/A/+H/wP/B/8rAAD/A/8H/y//h/9T/wf/L/+H/y//B/8D/wf/L/8HAAD/h/8r/wf/V/+HAAD/B/8r/wf/V/8H"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AgALAAUAAgAIAAsABgAVAAkABgASABUAFAARABcAFAAOABEADAADAA8ADAAAAAMABwANABMABwABAA0AFgAEAAoAFgAQAAQA"),
+"material": ExtResource("1_bfop1"),
+"name": "CapeMaterial",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP7/AIAAAAAA/v9U1QAAAAD+//+/AAD///7/AIAAAP///v9U1QAA///+//+/AAAAAAAA//8AAAAAAABU1QAAAAAAAP+/AAD//wAA//8AAP//AABU1QAA//8AAP+///8AAP7/AID//wAA/v9U1f//AAD+//+///////7/AID//////v9U1f/////+//+///8AAAAA/////wAAAABU1f//AAAAAP+//////wAA////////AABU1f////8AAP+//3///6oqVNX/f////3///1TVqir/f////3///6oqVNX/f////3///1TVqir/f////3///6oqVNX/fwAA/3///1TVqir/fwAA/3///6oqVNX/fwAA/3///1TVqir/fwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_7cbna")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4p7sr"]
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.717647, 0.784314, 0.745098, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ruwa2"]
+bg_color = Color(0.717647, 0.784314, 0.745098, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="CapeItem" type="Control"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme = ExtResource("1_43875")
+script = ExtResource("1_iv0hx")
+TWEEN_DURATION = 0.15
+cape_path = "uid://dnrack7oiu3cc"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="PanelContainer/SubViewportContainer"]
+own_world_3d = true
+world_3d = SubResource("World3D_6dxwg")
+transparent_bg = true
+handle_input_locally = false
+screen_space_aa = 1
+size = Vector2i(1152, 648)
+size_2d_override = Vector2i(512, 512)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Cape" type="MeshInstance3D" parent="PanelContainer/SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+transform = Transform3D(-0.393923, -0.208378, -6.99382e-08, -0.0694593, 1.18177, 0, 3.44379e-08, 1.8217e-08, -0.8, -0.25, 1, 0)
+mesh = SubResource("ArrayMesh_xdqdl")
+skeleton = NodePath("")
+
+[node name="Anchor" type="Node3D" parent="PanelContainer/SubViewportContainer/SubViewport"]
+
+[node name="Camera3D" type="Camera3D" parent="PanelContainer/SubViewportContainer/SubViewport/Anchor"]
+transform = Transform3D(0.707107, -0.247634, 0.662327, 0, 0.936672, 0.350207, -0.707107, -0.247634, 0.662327, 4, 1.6, 4)
+projection = 1
+size = 5.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="SelectionIndicator" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4p7sr")
+
+[node name="CheckMark" type="PanelContainer" parent="SelectionIndicator"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ruwa2")
+
+[node name="Label" type="Label" parent="SelectionIndicator/CheckMark"]
+layout_mode = 2
+text = "✓"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

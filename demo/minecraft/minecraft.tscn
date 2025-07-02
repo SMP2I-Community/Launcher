@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://c77lr42fyc6sd"]
+
+[ext_resource type="Script" uid="uid://bf5b1umcx61b3" path="res://demo/minecraft/minecraft.gd" id="1_qtflt"]
+[ext_resource type="PackedScene" uid="uid://dtw5lk0o3nfi0" path="res://demo/minecraft/releases.tscn" id="3_wq5me"]
+[ext_resource type="Script" uid="uid://diq352wlld8lq" path="res://addons/java/java.gd" id="3_xtk5w"]
+[ext_resource type="Script" uid="uid://dvgup5t00p4bs" path="res://addons/minecraft/tweakers/forge_tweaker.gd" id="5_o0ol4"]
+[ext_resource type="Script" uid="uid://8aw8lbj4m0b4" path="res://demo/assets.gd" id="7_w2iut"]
+[ext_resource type="PackedScene" uid="uid://xwk0ntwmdllu" path="res://addons/minecraft/libraries/libraries.tscn" id="8_o0ol4"]
+[ext_resource type="Script" uid="uid://c82fysxwyi4s7" path="res://demo/minecraft/client.gd" id="8_w2iut"]
+[ext_resource type="Script" uid="uid://dosycbopd4d64" path="res://addons/minecraft/runner.gd" id="8_y5pxa"]
+
+[node name="Minecraft" type="Node"]
+script = ExtResource("1_qtflt")
+
+[node name="Java" type="Node" parent="."]
+script = ExtResource("3_xtk5w")
+installation_folder = "user://runtime"
+linux_download_url = "https://builds.openlogic.com/downloadJDK/openlogic-openjdk/22.0.2+9/openlogic-openjdk-22.0.2+9-linux-x64.tar.gz"
+windows_download_url = "https://download.oracle.com/java/17/archive/jdk-17.0.12_windows-x64_bin.zip"
+windows_executable_path = "bin/javaw.exe"
+windows_unzipped_folder = "jdk-17.0.12"
+macos_download_url = "https://builds.openlogic.com/downloadJDK/openlogic-openjdk-jre/17.0.14+7/openlogic-openjdk-jre-17.0.14+7-mac-x64.zip"
+metadata/_custom_type_script = "uid://diq352wlld8lq"
+
+[node name="Releases" parent="." instance=ExtResource("3_wq5me")]
+
+[node name="ForgeTweaker" type="Node" parent="." node_paths=PackedStringArray("assets", "libraries", "client")]
+script = ExtResource("5_o0ol4")
+assets = NodePath("Assets")
+libraries = NodePath("Libraries")
+client = NodePath("Client")
+metadata/_custom_type_script = "uid://dvgup5t00p4bs"
+
+[node name="Assets" type="Node" parent="ForgeTweaker"]
+script = ExtResource("7_w2iut")
+max_threads = 10
+metadata/_custom_type_script = "uid://cqf5kbloq7w2i"
+
+[node name="Libraries" parent="ForgeTweaker" instance=ExtResource("8_o0ol4")]
+
+[node name="Client" type="HTTPRequest" parent="ForgeTweaker"]
+script = ExtResource("8_w2iut")
+download_folder = "user://libraries"
+metadata/_custom_type_script = "uid://c82fysxwyi4s7"
+
+[node name="MinecaftRunner" type="Node" parent="." node_paths=PackedStringArray("java", "tweaker")]
+script = ExtResource("8_y5pxa")
+java = NodePath("../Java")
+tweaker = NodePath("../ForgeTweaker")
+metadata/_custom_type_script = "uid://dosycbopd4d64"
+
+[connection signal="installed" from="Releases" to="." method="_on_releases_installed"]
+[connection signal="installed" from="ForgeTweaker" to="." method="_on_tweaker_installed"]
+[connection signal="on_run" from="MinecaftRunner" to="." method="_on_minecaft_runner_on_run"]

@@ -1,0 +1,7 @@
+# Godot 4+ specific ignores
+.godot/
+exports/*
+cmd.*
+logs/*
+*.key
+.sl_password

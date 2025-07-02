@@ -1,0 +1,313 @@
+[gd_scene load_steps=22 format=3 uid="uid://bnvlws7lnrdw"]
+
+[ext_resource type="Theme" uid="uid://dmajl82kqvoml" path="res://demo/assets/themes/main_theme.tres" id="1_3r4ql"]
+[ext_resource type="Script" uid="uid://bv83qgwbfu3rg" path="res://demo/main.gd" id="2_3qh5v"]
+[ext_resource type="PackedScene" uid="uid://c77lr42fyc6sd" path="res://demo/minecraft/minecraft.tscn" id="3_27lkm"]
+[ext_resource type="PackedScene" uid="uid://bdldpvq2ibhu4" path="res://demo/skin_sender.tscn" id="13_fdg1k"]
+[ext_resource type="Script" uid="uid://b8su7m0ebsh0a" path="res://demo/mass_downloads.gd" id="16_nwv5g"]
+[ext_resource type="PackedScene" uid="uid://bat3n2cmf3i2b" path="res://demo/menus/capes_selector_window.tscn" id="17_cidaf"]
+[ext_resource type="PackedScene" uid="uid://b2mp5ed0vs4pf" path="res://demo/menus/player_viewport_container.tscn" id="18_x1xes"]
+[ext_resource type="Script" uid="uid://cb5pprveayj4s" path="res://demo/menus/ram_panel.gd" id="19_36jaf"]
+[ext_resource type="FontFile" uid="uid://dqgwaq7bvtwpr" path="res://demo/assets/fonts/Comfortaa/static/Comfortaa-Bold.ttf" id="20_oxxlq"]
+[ext_resource type="Script" uid="uid://dacbrmphtmv1y" path="res://demo/menus/custom_nodes/rotating_labek.gd" id="21_mjx5a"]
+[ext_resource type="Script" uid="uid://2woelyueautw" path="res://demo/player_name_line_edit.gd" id="22_kkmuq"]
+[ext_resource type="Texture2D" uid="uid://bccwy8opb2gkd" path="res://demo/assets/textures/NodeWarning.svg" id="23_mrq1a"]
+[ext_resource type="Script" uid="uid://bnmyahdqpjit4" path="res://addons/easy_requests/requests.gd" id="24_cw4ra"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cpkci"]
+font = ExtResource("20_oxxlq")
+font_size = 24
+
+[sub_resource type="Animation" id="Animation_xi3f0"]
+resource_name = "Flash"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WarningTexture:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_sfwgk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WarningTexture:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_58xs6"]
+_data = {
+&"Flash": SubResource("Animation_xi3f0"),
+&"RESET": SubResource("Animation_sfwgk")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ta4k"]
+font = ExtResource("20_oxxlq")
+font_size = 96
+
+[sub_resource type="Animation" id="Animation_4juw5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_exirq"]
+resource_name = "Show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p3jug"]
+_data = {
+&"RESET": SubResource("Animation_4juw5"),
+&"Show": SubResource("Animation_exirq")
+}
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 2
+theme = ExtResource("1_3r4ql")
+script = ExtResource("2_3qh5v")
+
+[node name="Minecraft" parent="." instance=ExtResource("3_27lkm")]
+
+[node name="MassDownloads" type="Node" parent="."]
+script = ExtResource("16_nwv5g")
+metadata/_custom_type_script = "uid://b8su7m0ebsh0a"
+
+[node name="SkinFileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+size = Vector2i(1681, 215)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png")
+use_native_dialog = true
+
+[node name="CapesSelectorWindow" parent="." instance=ExtResource("17_cidaf")]
+visible = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+use_top_left = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(604, 401)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(604, 362)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="SkinContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+
+[node name="PlayerViewportContainer" parent="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/SkinContainer" instance=ExtResource("18_x1xes")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ChangeButton" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/SkinContainer"]
+layout_mode = 2
+theme_type_variation = &"ButtonBottomLeft"
+text = "CHANGER"
+
+[node name="RamPanel" type="PanelContainer" parent="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"PanelCover"
+script = ExtResource("19_36jaf")
+
+[node name="RamSlider" type="VSlider" parent="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/RamPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+min_value = 2.0
+max_value = 16.0
+value = 4.0
+
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/RamPanel"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RotatingLabel" type="Label" parent="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/RamPanel/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -16.0
+offset_right = 58.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+pivot_offset = Vector2(58, 16)
+text = "RAM: %sG"
+label_settings = SubResource("LabelSettings_cpkci")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("21_mjx5a")
+args = ["2"]
+
+[node name="PlayContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(370, 0)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/PlayContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/PlayContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/PlayContainer/Control/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Pseudo :"
+
+[node name="PlayerNameLineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/PlayContainer/Control/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Ton pseudo"
+max_length = 16
+context_menu_enabled = false
+caret_blink = true
+script = ExtResource("22_kkmuq")
+
+[node name="WarningTexture" type="TextureRect" parent="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/PlayContainer/Control/VBoxContainer/PlayerNameLineEdit"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -6.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("23_mrq1a")
+stretch_mode = 3
+
+[node name="PlayerNameAnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/PlayContainer/Control/VBoxContainer/PlayerNameLineEdit"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_58xs6")
+}
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/PlayContainer/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "SMP2I"
+label_settings = SubResource("LabelSettings_7ta4k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/PlayContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ButtonBottomRight"
+text = "JOUER  "
+
+[node name="ProgressBar" type="ProgressBar" parent="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/PlayContainer/PlayButton"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"ProgressBarRight"
+max_value = 4153.0
+step = 1.0
+value = 1500.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_p3jug")
+}
+autoplay = "Show"
+
+[node name="SkinDownloadTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Requests" type="Node" parent="."]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+script = ExtResource("24_cw4ra")
+
+[node name="QuitTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="SkinSender" parent="." instance=ExtResource("13_fdg1k")]
+
+[connection signal="on_minecraft_run" from="Minecraft" to="." method="_on_minecraft_on_minecraft_run"]
+[connection signal="file_selected" from="SkinFileDialog" to="." method="_on_skin_file_dialog_file_selected"]
+[connection signal="file_selected" from="SkinFileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="cape_selected" from="CapesSelectorWindow" to="." method="_on_capes_selector_window_cape_selected"]
+[connection signal="close" from="CapesSelectorWindow" to="." method="_on_capes_selector_window_close"]
+[connection signal="change_cape_request" from="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/SkinContainer/PlayerViewportContainer" to="." method="_on_player_viewport_container_change_cape_request"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/SkinContainer/ChangeButton" to="." method="_on_button_pressed"]
+[connection signal="drag_ended" from="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/RamPanel/RamSlider" to="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/RamPanel" method="_on_ram_slider_drag_ended"]
+[connection signal="text_changed" from="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/PlayContainer/Control/VBoxContainer/PlayerNameLineEdit" to="." method="_on_player_name_line_edit_text_changed"]
+[connection signal="text_changed" from="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/PlayContainer/Control/VBoxContainer/PlayerNameLineEdit" to="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/PlayContainer/Control/VBoxContainer/PlayerNameLineEdit" method="_on_text_changed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/PlayContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="timeout" from="SkinDownloadTimer" to="." method="_on_skin_download_timer_timeout"]
+[connection signal="timeout" from="QuitTimer" to="." method="_on_quit_timer_timeout"]

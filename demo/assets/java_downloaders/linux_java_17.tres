@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="JavaDownloader" load_steps=2 format=3 uid="uid://bpc5u6s0v5q1x"]
+
+[ext_resource type="Script" uid="uid://2i2tiwcurk8j" path="res://addons/minecraft_launcher/java_downloader.gd" id="1_ps84f"]
+
+[resource]
+script = ExtResource("1_ps84f")
+java_major_version = "17"
+url = "https://download.oracle.com/java/17/archive/jdk-17.0.12_linux-x64_bin.tar.gz"
+exe_path = "jdk-17.0.12/bin/java"
+extension = "tar.gz"
+sha1 = "0e8dd609d1363907f99039913b218eefda033e8f"

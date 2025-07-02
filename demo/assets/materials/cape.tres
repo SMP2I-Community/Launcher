@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://8takg5xmbcdn"]
+
+[ext_resource type="Texture2D" uid="uid://dnrack7oiu3cc" path="res://demo/assets/textures/cape.png" id="1_1u58b"]
+
+[resource]
+resource_name = "CapeMaterial"
+transparency = 1
+albedo_texture = ExtResource("1_1u58b")
+texture_filter = 2
