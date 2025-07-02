@@ -50,16 +50,24 @@ func download_zipball():
 	
 	DirAccess.make_dir_recursive_absolute(to_folder)
 	
-	var response: Dictionary = (await requests.do_get(get_url())).json()
+	var response: Requests.Response = (await requests.do_get(get_url()))
+	if response.result == HTTPRequest.RESULT_TLS_HANDSHAKE_ERROR:
+		push_error("TLS Handshake error, try again")
+		return await download_zipball()
 	
-	var zipball_url: String = response.get("zipball_url", "")
+	var response_data = response.json()
+	if response_data == null:
+		push_error("Data is null, try again")
+		return await download_zipball()
+	
+	var zipball_url: String = response_data.get("zipball_url", "")
 	if zipball_url.is_empty():
-		if response.has("message"):
+		if response_data.has("message"):
 			installed.emit(false)
 		push_error("zipball url is empty\t%s" % response)
 		return
 	
-	tag_name = response.get("tag_name", "")
+	tag_name = response_data.get("tag_name", "")
 	
 	var tag_file := get_tag_file(to_folder, FileAccess.READ)
 	if not must_update(tag_file):
