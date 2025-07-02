@@ -54,6 +54,8 @@ func download_zipball():
 	
 	var zipball_url: String = response.get("zipball_url", "")
 	if zipball_url.is_empty():
+		if response.has("message"):
+			installed.emit(false)
 		push_error("zipball url is empty\t%s" % response)
 		return
 	

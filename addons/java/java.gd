@@ -24,6 +24,7 @@ var extractor: Extractor
 
 var is_installing := false
 # Variable used when we try to execute and java isn't installed
+var must_execute_in := false
 var must_execute: JavaExecutor
 var must_callback: Callable
 
@@ -144,10 +145,21 @@ func execute(executor: JavaExecutor, callback: Callable = Callable()):
 	if not is_installed():
 		must_execute = executor
 		must_callback = callback
+		must_execute_in = false
 		install()
 	else:
 		_progress = INSTALLED_PROGRESS_VALUE
 		_execute(executor, callback)
+
+func execute_in(path: String, executor: JavaExecutor, callback := Callable()):
+	if not is_installed():
+		must_execute = executor
+		must_callback = callback
+		must_execute_in = true
+		install()
+	else:
+		_progress = INSTALLED_PROGRESS_VALUE
+		_execute_in(path, executor, callback)
 
 func _create_process(executor: JavaExecutor, callback: Callable = Callable()) -> int:
 	var executable: String = get_executable()
@@ -159,11 +171,53 @@ func _execute(executor: JavaExecutor, callback: Callable = Callable()):
 	thread = Thread.new()
 	thread.start(_execute_thread.bind(executable, executor, callback))
 
-func _execute_thread(executable, executor: JavaExecutor, callback: Callable):
+func _execute_in(path: String, executor: JavaExecutor, callback := Callable()):
+	var executable: String = get_executable()
+	
+	thread = Thread.new()
+	thread.start(_execute_in_thread.bind(path, executable, executor, callback))
+
+func _execute_thread(executable: String, executor: JavaExecutor, callback: Callable):
 	var output = []
 	
 	on_execute.emit.call_deferred()
 	
 	var exit_code: int = OS.execute(executable, executor.as_arguments(), output, false, executor.open_console)
+	
+	callback.call_deferred(exit_code, output)
+
+func _execute_in_thread(path: String, executable: String, executor: JavaExecutor, callback: Callable):
+	var global_path := ProjectSettings.globalize_path(path)
+	
+	var cmd_path: String
+	var cmd_file: FileAccess
+	if Utils.get_os_type() == Utils.OS_TYPE.LINUX:
+		cmd_path = global_path.path_join("execute_cmd.sh")
+		cmd_file = FileAccess.open(cmd_path, FileAccess.WRITE)
+		
+		var permissions: int = (
+			FileAccess.UNIX_EXECUTE_OWNER
+			| FileAccess.UNIX_READ_OWNER
+			| FileAccess.UNIX_WRITE_OWNER
+			| FileAccess.UNIX_EXECUTE_GROUP
+			| FileAccess.UNIX_READ_GROUP
+			| FileAccess.UNIX_READ_OTHER
+			| FileAccess.UNIX_EXECUTE_OTHER
+		)
+		
+		printt("perm:", permissions, cmd_file)
+		
+		FileAccess.set_unix_permissions(cmd_path, permissions)
+	elif Utils.get_os_type() == Utils.OS_TYPE.WINDOWS:
+		cmd_path = global_path.path_join(".execute_cmd.bat")
+		cmd_file = FileAccess.open(cmd_path, FileAccess.WRITE)
+	
+	assert(cmd_file, "cmd_file is null")
+	
+	cmd_file.store_line("cd %s && %s %s" % [global_path, executable, " ".join(executor.as_arguments())])
+	cmd_file.close()
+	
+	var output = []
+	var exit_code: int = OS.execute(cmd_path, [], output, false, executor.open_console)
 	
 	callback.call_deferred(exit_code, output)

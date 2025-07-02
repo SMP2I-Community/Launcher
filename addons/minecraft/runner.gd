@@ -23,7 +23,4 @@ func run():
 	executor.options.append(tweaker.get_main_class())
 	executor.options.append_array(game_args.to_array())
 	
-	java.execute(executor)
-	
-	var file = FileAccess.open("user://cmd.sh", FileAccess.WRITE)
-	file.store_string("%s %s" % [java.get_executable(), " ".join(executor.as_arguments())])
+	java.execute_in("user://", executor)
