@@ -3,6 +3,12 @@ extends Node
 signal skin_updated
 signal cape_updated
 
+signal skin_downloaded
+signal cape_downloaded
+
+const SKIN_PATH := "user://skin.png"
+const CAPE_PATH := "user://cape.png"
+
 const MINECRAFT_UUID = "https://api.mojang.com/users/profiles/minecraft/%s"
 const MINECRAFT_PROFILE = "https://sessionserver.mojang.com/session/minecraft/profile/%s"
 const UNKOWN_SKIN = preload("res://demo/assets/textures/skins/unkown.png")
@@ -21,7 +27,7 @@ func _ready() -> void:
 	get_skin_or_download()
 
 func set_player_name(value: String):
-	profile.player_name = value if value.replace(" ", "") != "" else "NoOne"
+	profile.player_name = value if value.replace(" ", "") != "" else "Player"
 	profile.save_profile()
 	
 	if profile.get_skin_texture() == UNKOWN_SKIN:
@@ -39,7 +45,21 @@ func get_player_name() -> String:
 	return profile.player_name
 
 func get_skin() -> Texture2D:
-	return profile.get_skin_texture()
+	if FileAccess.file_exists(SKIN_PATH):
+		var image = Image.load_from_file(SKIN_PATH)
+		var texture = ImageTexture.create_from_image(image)
+		return texture
+	return UNKOWN_SKIN
+
+func download_skin():
+	var file: GithubFiles.GithubFileData = await skin_github_files.get_existing_file("skins/%s.png" % get_player_name())
+	file.save(SKIN_PATH)
+	skin_updated.emit()
+
+func download_cape():
+	var file: GithubFiles.GithubFileData = await capes_github_files.get_existing_file("capes/%s.png" % get_player_name())
+	file.save(CAPE_PATH)
+	cape_updated.emit()
 
 func get_skin_or_download():
 	var t = profile.get_skin_texture()
@@ -51,7 +71,11 @@ func get_skin_or_download():
 	return t
 
 func get_cape():
-	return profile.get_cape_texture()
+	if FileAccess.file_exists(CAPE_PATH):
+		var image = Image.load_from_file(CAPE_PATH)
+		var texture = ImageTexture.create_from_image(image)
+		return texture
+	return null
 
 func download_skin_texture() -> String:
 	var player_data = (await downloader.do_get(MINECRAFT_UUID % profile.player_name)).json()

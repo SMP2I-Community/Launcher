@@ -44,6 +44,9 @@ func _init_curseforge_api():
 func _init_github_api():
 	var file = FileAccess.open(GITHUB_KEY_PATH, FileAccess.READ)
 	GithubAPI.init(file.get_line())
+	
+	ProfileManager.download_skin()
+	ProfileManager.download_cape()
 
 func _on_button_pressed() -> void:
 	skin_file_dialog.popup_centered()

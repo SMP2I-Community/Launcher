@@ -64,7 +64,7 @@ func download_zipball():
 	if zipball_url.is_empty():
 		if response_data.has("message"):
 			installed.emit(false)
-		push_error("zipball url is empty\t%s" % response)
+		push_error("zipball url is empty\t%s" % response_data)
 		return
 	
 	tag_name = response_data.get("tag_name", "")
