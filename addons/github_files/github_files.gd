@@ -1,6 +1,8 @@
 extends HTTPRequest
 class_name GithubFiles
 
+signal wrong_sha
+
 @export var github_owner: String
 @export var github_repository: String
 
@@ -49,7 +51,13 @@ func get_existing_file(to: String) -> GithubFileData:
 	return GithubFileData.new(data["content"], data["sha"])
 
 func _on_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray):
-	printt(result, response_code, JSON.parse_string(body.get_string_from_utf8()).get("message", "ok"))
+	if response_code == 404:
+		print_debug("Github file not found")
+	elif response_code == 409: # Wrong sha
+		print_debug("Incorrect sha, can't replace github's file")
+		wrong_sha.emit()
+	else:
+		printt("Github files response:", response_code, JSON.parse_string(body.get_string_from_utf8()).get("message", "ok"))
 
 class GithubFileData extends RefCounted:
 	var sha: String

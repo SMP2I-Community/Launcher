@@ -89,4 +89,6 @@ func _on_quit_timer_timeout() -> void:
 
 
 func _on_minecraft_on_minecraft_run() -> void:
+	ProfileManager.send_to_github()
+	print_debug("Quit launcher in %ss" % quit_timer.wait_time)
 	quit_timer.start()

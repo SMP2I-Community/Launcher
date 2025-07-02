@@ -294,12 +294,11 @@ process_thread_messages = 0
 script = ExtResource("24_cw4ra")
 
 [node name="QuitTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 7.0
 
 [node name="SkinSender" parent="." instance=ExtResource("13_fdg1k")]
 
 [connection signal="on_minecraft_run" from="Minecraft" to="." method="_on_minecraft_on_minecraft_run"]
-[connection signal="file_selected" from="SkinFileDialog" to="." method="_on_file_dialog_file_selected"]
 [connection signal="file_selected" from="SkinFileDialog" to="." method="_on_skin_file_dialog_file_selected"]
 [connection signal="cape_selected" from="CapesSelectorWindow" to="." method="_on_capes_selector_window_cape_selected"]
 [connection signal="close" from="CapesSelectorWindow" to="." method="_on_capes_selector_window_close"]

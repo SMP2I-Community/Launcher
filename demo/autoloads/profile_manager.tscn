@@ -26,3 +26,5 @@ github_repository = "SkinAPI"
 metadata/_custom_type_script = "uid://ci7sb1buynccb"
 
 [connection signal="timeout" from="SkinDownloadTimer" to="." method="_on_skin_download_timer_timeout"]
+[connection signal="wrong_sha" from="SkinGithubFiles" to="." method="_on_skin_github_files_wrong_sha"]
+[connection signal="wrong_sha" from="CapesGithubFiles" to="." method="_on_capes_github_files_wrong_sha"]

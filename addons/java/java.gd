@@ -205,8 +205,6 @@ func _execute_in_thread(path: String, executable: String, executor: JavaExecutor
 			| FileAccess.UNIX_EXECUTE_OTHER
 		)
 		
-		printt("perm:", permissions, cmd_file)
-		
 		FileAccess.set_unix_permissions(cmd_path, permissions)
 	elif Utils.get_os_type() == Utils.OS_TYPE.WINDOWS:
 		cmd_path = global_path.path_join(".execute_cmd.bat")
@@ -216,6 +214,8 @@ func _execute_in_thread(path: String, executable: String, executor: JavaExecutor
 	
 	cmd_file.store_line("cd %s && %s %s" % [global_path, executable, " ".join(executor.as_arguments())])
 	cmd_file.close()
+	
+	on_execute.emit.call_deferred()
 	
 	var output = []
 	var exit_code: int = OS.execute(cmd_path, [], output, false, executor.open_console)
