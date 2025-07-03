@@ -11,6 +11,9 @@ signal installed(udpated: bool)
 @export var delete_older := true
 
 @export var PROGRESS_INSTALLED_VALUE := 10
+@export var fake_progress_time := 3.0
+var fake_progress := false
+var fake_delta := 0.0
 
 var requests: Requests
 var http_request: HTTPRequest
@@ -42,7 +45,16 @@ func _init_extractor():
 func get_url() -> StringName:
 	return "https://api.github.com/repos/%s/%s/releases/latest" % [owner_name, repository]
 
+func _process(delta: float) -> void:
+	fake_delta += delta
+	if fake_progress and fake_delta > fake_progress_time and _progress < PROGRESS_INSTALLED_VALUE / 2:
+		fake_delta = 0.0
+		_progress += 1
+		PROGRESS_INSTALLED_VALUE -= 1
+
 func install():
+	fake_delta = 0.0
+	fake_progress = true
 	download_zipball()
 
 func download_zipball():

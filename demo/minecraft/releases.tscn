@@ -18,6 +18,7 @@ script = ExtResource("1_pnse1")
 owner_name = "SMP2I-Community"
 repository = "Overrides"
 PROGRESS_INSTALLED_VALUE = 250
+fake_progress_time = 0.2
 metadata/_custom_type_script = "uid://yy02e2l4h346"
 
 [connection signal="installed" from="CapesRelease" to="." method="_on_capes_release_installed"]

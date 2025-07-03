@@ -19,6 +19,8 @@ var profile: MCProfile = MCProfile.load_profile(minecraft_folder)
 
 @onready var skin_github_files: GithubFiles = $SkinGithubFiles
 var skin_sha: String
+var is_mojang_skin: bool = false
+
 @onready var capes_github_files: GithubFiles = $CapesGithubFiles
 var cape_sha: String
 
@@ -81,6 +83,7 @@ func download_github_cape(save := true) -> bool:
 	cape_sha = file.sha
 	if save:
 		file.save(get_cape_path())
+		is_mojang_skin = false
 	return true
 
 func get_cape():
@@ -121,6 +124,7 @@ func download_minecraft_skin() -> bool:
 	if skin_data:
 		await downloader.do_file(skin_data["textures"]["SKIN"]["url"], get_skin_path())
 		print_debug("Minecraft skin downloaded")
+		is_mojang_skin = true
 		return true
 	
 	print_debug("No idk")
@@ -131,6 +135,11 @@ func send_to_github():
 	_send_cape(get_player_name())
 
 func _send_skin(player_name: String):
+	if not FileAccess.file_exists(get_skin_path()):
+		return
+	if is_mojang_skin:
+		return
+	
 	skin_github_files.send_file(get_skin_path(), "skins/%s.png" % player_name, skin_sha, "bot_%s" % player_name, "Update skin")
 
 func _send_cape(player_name: String):
