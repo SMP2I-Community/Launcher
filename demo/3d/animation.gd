@@ -22,7 +22,7 @@ func _ready() -> void:
 	animation_player.speed_scale = 1.0
 	select_skin()
 	select_animation()
-	dog_pose2()
+
 
 func select_skin():
 	var skin: Texture = skins.pick_random()
