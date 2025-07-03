@@ -13,12 +13,16 @@ var animations: Array[Callable] = [
 	rotating,
 	sitting,
 	jojo_pose,
-	jotaro_pos,
+	jotaro_pose,
+	dog_pose,
+	dog_pose2
 ]
 
 func _ready() -> void:
+	animation_player.speed_scale = 1.0
 	select_skin()
 	select_animation()
+	dog_pose2()
 
 func select_skin():
 	var skin: Texture = skins.pick_random()
@@ -26,6 +30,7 @@ func select_skin():
 
 
 func select_animation():
+	animation_player.speed_scale = 1.0
 	var anim: Callable = animations.pick_random()
 	anim.call()
 
@@ -58,7 +63,7 @@ func jojo_pose():
 	animation_player.speed_scale = 0.01
 	godot_player.player_animations.play("JojoPose")
 
-func jotaro_pos():
+func jotaro_pose():
 	animation_player.play("Rotating")
 	animation_player.speed_scale = 0.01
 	godot_player.player_animations.play("JotaroPose")
@@ -68,3 +73,11 @@ func jotaro_pos():
 	#animation_player.play("Rotating")
 	#animation_player.speed_scale = 0.01
 	#godot_player.player_animations.play("JosephPose")
+
+func dog_pose():
+	animation_player.play("MovePlayer")
+	godot_player.player_animations.play("Dog")
+
+func dog_pose2():
+	animation_player.play("Rotating")
+	godot_player.player_animations.play("Dog")
