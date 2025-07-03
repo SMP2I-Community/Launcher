@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=4 uid="uid://ctmnbplu5lak0"]
+
+[ext_resource type="PackedScene" uid="uid://b37yxgwl3lhrf" path="res://demo/3d/godot_player.tscn" id="1_wgut5"]
+[ext_resource type="Script" uid="uid://ck3nouo4dcuo8" path="res://demo/3d/rotating_godot_player.gd" id="2_sc60q"]
+[ext_resource type="Material" uid="uid://bdrh2jj7c4oc3" path="res://demo/assets/materials/player_godot.tres" id="3_qfiwi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qfiwi"]
+size = Vector3(0.31, 2.516, 1.63)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vyh15"]
+resource_local_to_scene = true
+resource_name = "player_slim_Cube_003"
+_surfaces = [{
+"aabb": AABB(-0.4, -1.2, -0.800001, 0.8, 2.4, 1.60001),
+"attribute_data": PackedByteArray("AAAQPwAAgD4AAIA+AAAAPwAAID8BAAA/AACAPv7/nz4AAKA+AACAPgAAID8CAKA+AADgPgAAgD4AAAA/AAAAPwAAAD8AAAA/AADgPgAAgD4AAAA/AACgPgAAAD8AAKA+AAAQPwAAoD4AAKA+AAAAPwAAoD4AAAA/AACgPgAAoD4AAKA+AACgPgAAoD4AAKA+AADgPgAAoD4AAOA+AAAAPwAA4D4AAAA/AADgPgAAoD4AAOA+AACgPgAA4D4AAKA+"),
+"bone_aabbs": [AABB(0, 0, 0, -1, -1, -1), AABB(-0.4, -1.2, -0.800001, 0.8, 2.4, 1.60001), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(-0.4, 1.2, -0.800001, 1.00136e-05, 1.0252e-05, 1.60001), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(-0.4, 1.2, -0.800001, 0.8, 1.0252e-05, 1.60001), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(-0.4, -1.2, -0.8, 1.00136e-05, 1.00136e-05, 1.00136e-05), AABB(-0.4, -1.2, -0.8, 1.00136e-05, 1.00136e-05, 1.00136e-05), AABB(0, 0, 0, -1, -1, -1), AABB(-0.4, -1.2, 0.799999, 0.8, 1.00136e-05, 1.00136e-05), AABB(-0.4, -1.2, 0.799999, 1.00136e-05, 1.00136e-05, 1.00136e-05)],
+"format": 34359745559,
+"index_count": 36,
+"index_data": PackedByteArray("AgALAAUAAgAIAAsABwAXAAoABwAUABcAEwAQABUAEwAOABAADQADAA8ADQABAAMABgAMABIABgAAAAwAFgAEAAkAFgARAAQA"),
+"material": ExtResource("3_qfiwi"),
+"name": "Material.001",
+"primitive": 3,
+"skin_data": PackedByteArray("AQAOAA0AAADy+4oDggAAAAEADgANAAAA8vuKA4IAAAABAA4ADQAAAPL7igOCAAAAAQAHAAQAAADI/ikBDAAAAAEABwAEAAAAyP4pAQwAAAABAAcABAAAAMj+KQEMAAAAAQAKAAsAAABs/1IAPwAAAAEACgALAAAAbP9SAD8AAAABAAoACwAAAGz/UgA/AAAAAQAEAAcAAAAE/vIBCAAAAAEABAAHAAAABP7yAQgAAAABAAQABwAAAAT+8gEIAAAAAQANAAAAAACB/30AAAAAAAEADQAAAAAAgf99AAAAAAABAA0AAAAAAIH/fQAAAAAAAQAHAAAAAAAc/+IAAAAAAAEABwAAAAAAHP/iAAAAAAABAAcAAAAAABz/4gAAAAAAAQAAAAAAAAD//wAAAAAAAAEAAAAAAAAA//8AAAAAAAABAAAAAAAAAP//AAAAAAAAAQAHAAAAAADN/zEAAAAAAAEABwAAAAAAzf8xAAAAAAABAAcAAAAAAM3/MQAAAAAA"),
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("yszMvpmZmb/DzEw/yszMvpmZmb/DzEw/yszMvpmZmb/DzEw/yszMvpuZmT+9zEw/yszMvpuZmT+9zEw/yszMvpuZmT+9zEw/yszMvpuZmb/RzEy/yszMvpuZmb/RzEy/yszMvpuZmb/RzEy/yszMvpmZmT/XzEy/yszMvpmZmT/XzEy/yszMvpmZmT/XzEy/yszMPpmZmb/DzEw/yszMPpmZmb/DzEw/yszMPpmZmb/DzEw/yszMPpuZmT+9zEw/yszMPpuZmT+9zEw/yszMPpuZmT+9zEw/yszMPpuZmb/RzEy/yszMPpuZmb/RzEy/yszMPpuZmb/RzEy/yszMPpmZmT/XzEy/yszMPpmZmT/XzEy/yszMPpmZmT/XzEy//38AAP9//7//f/9/////vwAA/3//f/+//3//f////7//f////////wAA/3//f/+//38AAP9//78AAAAAAAD/vwAA/3//f/+//3////////8AAAAAAAD/vwAA/3//f/+//38AAP9//7//f/9/////v////3///////3//f////7////9///////9//////////38AAP9//7////9//////wAAAAAAAP+/////f///////f////////wAAAAAAAP+/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2lmaj"]
+resource_local_to_scene = true
+resource_name = "player_slim_Cube_004"
+_surfaces = [{
+"aabb": AABB(-0.5, -1.3, -0.900001, 1, 2.6, 1.80001),
+"attribute_data": PackedByteArray("AACAPgAAQD8BABA/AAAAPwAAID8BAEA/AACAPv//Dz8AAKA+AAAAPwAAID8BABA/AAAAPwAAPD8BAOA+AAAAPwAAAD8AAEA/AADgPgAAAD8AAAA/AAAMPwAAAD8AABA/AACgPgAAQD8AABA/AAAQPwAAoD4AAEA/AACgPgAAED8AAKA+AAAQPwAAoD4AABA/AADgPgAAPD8AAOA+AAAQPwAA4D4AAEA/AADgPgAAED8AAOA+AAAMPwAA4D4AABA/"),
+"bone_aabbs": [AABB(0, 0, 0, -1, -1, -1), AABB(-0.5, -1.3, -0.900001, 1, 2.6, 1.80001), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0.5, 1.3, 0.899999, 1.00136e-05, 1.00136e-05, 1.00136e-05), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0.5, -1.3, 0.9, 1.00136e-05, 1.00136e-05, 1.00136e-05), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(-0.5, -1.3, -0.9, 1.00136e-05, 1.00136e-05, 1.00136e-05), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(-0.5, -1.3, -0.9, 1.00136e-05, 1.00136e-05, 1.00136e-05)],
+"format": 34359745559,
+"index_count": 36,
+"index_data": PackedByteArray("AgALAAUAAgAIAAsABgAWAAoABgASABYAFAARABcAFAAOABEADAADAA8ADAAAAAMABwANABMABwABAA0AFQAEAAkAFQAQAAQA"),
+"material": ExtResource("3_qfiwi"),
+"name": "Material.001",
+"primitive": 3,
+"skin_data": PackedByteArray("AQAAAAAAAAD//wAAAAAAAAEAAAAAAAAA//8AAAAAAAABAAAAAAAAAP//AAAAAAAAAQAAAAAAAAD//wAAAAAAAAEAAAAAAAAA//8AAAAAAAABAAAAAAAAAP//AAAAAAAAAQAKAA0AAADW/xwADAAAAAEACgANAAAA1v8cAAwAAAABAAoADQAAANb/HAAMAAAAAQAAAAAAAAD//wAAAAAAAAEAAAAAAAAA//8AAAAAAAABAAAAAAAAAP//AAAAAAAAAQAHAAAAAAD0/woAAAAAAAEABwAAAAAA9P8KAAAAAAABAAcAAAAAAPT/CgAAAAAAAQAEAAAAAADp/xUAAAAAAAEABAAAAAAA6f8VAAAAAAABAAQAAAAAAOn/FQAAAAAAAQAAAAAAAAD//wAAAAAAAAEAAAAAAAAA//8AAAAAAAABAAAAAAAAAP//AAAAAAAAAQAAAAAAAAD//wAAAAAAAAEAAAAAAAAA//8AAAAAAAABAAAAAAAAAP//AAAAAAAA"),
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAv2Vmpr9fZmY/AAAAv2Vmpr9fZmY/AAAAv2Vmpr9fZmY/AAAAv2dmpj9YZmY/AAAAv2dmpj9YZmY/AAAAv2dmpj9YZmY/AAAAv2dmpr9tZma/AAAAv2dmpr9tZma/AAAAv2dmpr9tZma/AAAAv2Vmpj90Zma/AAAAv2Vmpj90Zma/AAAAv2Vmpj90Zma/AAAAP2Vmpr9fZmY/AAAAP2Vmpr9fZmY/AAAAP2Vmpr9fZmY/AAAAP2dmpj9YZmY/AAAAP2dmpj9YZmY/AAAAP2dmpj9YZmY/AAAAP2dmpr9tZma/AAAAP2dmpr9tZma/AAAAP2dmpr9tZma/AAAAP2Vmpj90Zma/AAAAP2Vmpj90Zma/AAAAP2Vmpj90Zma//3//f////7//fwAA/3//vwAA/3//f/+//3//f////7//f////////wAA/3//f/+//v8AAAAA/7//fwAA/3//vwAA/3//f/+//3/////////+/wAAAAD/vwAA/3//f/+//3//f////7//fwAA/3//v////3///////3//f////7//f////////////3///////v8AAAAA/7//fwAA/3//v////3///////3/////////+/wAAAAD/v////3//////")
+}]
+blend_shape_mode = 0
+
+[node name="RotatingGodotPlayer" instance=ExtResource("1_wgut5")]
+script = ExtResource("2_sc60q")
+can_animate = true
+rotation_speed = 0.002
+hide_cape_if_empty = false
+
+[node name="cape" parent="." index="0"]
+transform = Transform3D(0.998629, 0.0523359, 0, -0.0523359, 0.998629, 0, 0, 0, 1, -0.5, 1, 0)
+
+[node name="CapeCollision" type="StaticBody3D" parent="cape" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cape/CapeCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, -1.5071, 0)
+shape = SubResource("BoxShape3D_qfiwi")
+
+[node name="Body" parent="Armature/Skeleton3D/Slim" index="0"]
+mesh = SubResource("ArrayMesh_vyh15")
+
+[node name="BodyOut" parent="Armature/Skeleton3D/Slim" index="1"]
+mesh = SubResource("ArrayMesh_2lmaj")
+
+[node name="PlayerAnimations" parent="." index="2"]
+speed_scale = 0.4
+
+[node name="Anchor" type="Node3D" parent="." index="3"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Anchor" index="0"]
+transform = Transform3D(0.707107, -0.247634, 0.662327, 0, 0.936672, 0.350207, -0.707107, -0.247634, 0.662327, 4, 1.6, 4)
+projection = 1
+size = 8.0
+
+[editable path="cape"]

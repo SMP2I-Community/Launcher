@@ -1,29 +1,32 @@
-extends Node3D
+extends GodotPlayer
 
 signal change_cape_request
 
-var player_mat: StandardMaterial3D = preload("res://demo/assets/materials/player_godot.tres")
-var cape_mat: StandardMaterial3D = preload("res://demo/assets/materials/cape.tres")
+const RAY_LENGTH = 1000
 
+@onready var cape_collision: StaticBody3D = $cape/CapeCollision
+@onready var cam: Camera3D = $Anchor/Camera3D
 @onready var anchor: Node3D = $Anchor
 
-@export var rotation_speed: float = 0.002
 @export var can_animate: bool = true
-
-var velocity_y: float = 0.0
-
-@onready var cam: Camera3D = $Anchor/Camera3D
-@onready var cape_collision: StaticBody3D = $cape/CapeCollision
-
-@onready var slim: Node3D = $ArmatureWide/Skeleton3D/Slim
-@onready var wide: Node3D = $ArmatureWide/Skeleton3D/Wide
+@export var rotation_speed: float = 0.002
 
 func _ready() -> void:
+	super._ready()
+	
 	_on_skin_updated()
 	_on_cape_updated()
 	
 	ProfileManager.skin_updated.connect(_on_skin_updated)
 	ProfileManager.cape_updated.connect(_on_cape_updated)
+
+
+func _on_skin_updated():
+	set_skin(ProfileManager.get_skin())
+
+func _on_cape_updated():
+	set_cape(ProfileManager.get_cape())
+
 
 func set_camera_rotation(angle: float):
 	anchor.rotation.y = angle
@@ -34,8 +37,6 @@ func get_camera_rotation():
 func _process(_delta: float) -> void:
 	if can_animate:
 		anchor.rotation.y += rotation_speed
-
-const RAY_LENGTH = 1000
 
 func _physics_process(_delta):
 	var space_state = get_world_3d().direct_space_state
@@ -65,18 +66,3 @@ func handle_cape_click():
 	if Input.is_action_just_released("click_cape"):
 		can_animate = false
 		change_cape_request.emit()
-
-func launch(velocity: float):
-	pass
-
-func _on_skin_updated():
-	var texture = ProfileManager.get_skin()
-	player_mat.albedo_texture = texture
-	var img = texture.get_image()
-	
-	print_debug("Skin is " + ("wide" if img.get_pixel(55, 20).a == 1.0 else "small"))
-	slim.visible = img.get_pixel(55, 20).a != 1.0
-	wide.visible = img.get_pixel(55, 20).a == 1.0
-
-func _on_cape_updated():
-	cape_mat.albedo_texture = ProfileManager.get_cape()

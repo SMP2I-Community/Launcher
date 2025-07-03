@@ -1,13 +1,11 @@
-[gd_scene load_steps=34 format=4 uid="uid://b37yxgwl3lhrf"]
+[gd_scene load_steps=36 format=4 uid="uid://b37yxgwl3lhrf"]
 
 [ext_resource type="Material" uid="uid://bdrh2jj7c4oc3" path="res://demo/assets/materials/player_godot.tres" id="1_1alkx"]
-[ext_resource type="Script" uid="uid://yhdbuxkgsn8n" path="res://demo/3d/player_godot.gd" id="1_ic7ak"]
+[ext_resource type="Script" uid="uid://yhdbuxkgsn8n" path="res://demo/3d/godot_player.gd" id="1_ic7ak"]
 [ext_resource type="PackedScene" uid="uid://of1i4svdavxw" path="res://demo/3d/cape.blend" id="2_vmgbt"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xjqm1"]
-size = Vector3(0.31, 2.516, 1.63)
-
 [sub_resource type="ArrayMesh" id="ArrayMesh_brm6h"]
+resource_local_to_scene = true
 resource_name = "player_slim_Cube_003"
 _surfaces = [{
 "aabb": AABB(-0.4, -1.2, -0.800001, 0.8, 2.4, 1.60001),
@@ -79,6 +77,7 @@ bind/15/bone = -1
 bind/15/pose = Transform3D(1, 1.08855e-28, 6.6815e-22, 7.22224e-35, -1, 1.62921e-07, 6.6815e-22, -1.62921e-07, -1, -5.49493e-14, -3.6, 0.399999)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5q6f6"]
+resource_local_to_scene = true
 resource_name = "player_slim_Cube_004"
 _surfaces = [{
 "aabb": AABB(-0.5, -1.3, -0.900001, 1, 2.6, 1.80001),
@@ -572,31 +571,31 @@ length = 0.001
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ArmatureWide/Skeleton3D:LArm")
+tracks/0/path = NodePath("Armature/Skeleton3D:LArm")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.564787, -0.151334, -0.209965, 0.7836)
+tracks/0/keys = PackedFloat32Array(0, 1, -0.584958, 0, 0, 0.811064)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ArmatureWide/Skeleton3D:RArm")
+tracks/1/path = NodePath("Armature/Skeleton3D:RArm")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.579708, -0.07632, 0.105889, 0.804302)
+tracks/1/keys = PackedFloat32Array(0, 1, 0.584958, 0, 0, 0.811064)
 tracks/2/type = "rotation_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ArmatureWide/Skeleton3D:LLeg")
+tracks/2/path = NodePath("Armature/Skeleton3D:LLeg")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, -0.701057, 0.092296, 0.092296, 0.701057)
+tracks/2/keys = PackedFloat32Array(0, 1, -0.707107, 0, 0, 0.707107)
 tracks/3/type = "rotation_3d"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ArmatureWide/Skeleton3D:RLeg")
+tracks/3/path = NodePath("Armature/Skeleton3D:RLeg")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 0.701057, 0.092296, -0.092296, 0.701057)
+tracks/3/keys = PackedFloat32Array(0, 1, 0.707107, 0, 0, 0.707107)
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
@@ -607,7 +606,19 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, -0.191986)]
+"values": [Vector3(0, 0, -0.0523599)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_26i1t"]
@@ -616,28 +627,28 @@ loop_mode = 1
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ArmatureWide/Skeleton3D:LArm")
+tracks/0/path = NodePath("Armature/Skeleton3D:LArm")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, -0.579708, -0.0763201, -0.105889, 0.804302, 0.5, 1, -0.579708, 0.07632, 0.105888, 0.804302)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ArmatureWide/Skeleton3D:RArm")
+tracks/1/path = NodePath("Armature/Skeleton3D:RArm")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0.579708, -0.07632, 0.105889, 0.804302, 0.5, 1, 0.579708, 0.07632, -0.105888, 0.804302)
 tracks/2/type = "rotation_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ArmatureWide/Skeleton3D:LLeg")
+tracks/2/path = NodePath("Armature/Skeleton3D:LLeg")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, -0.701057, 0.092296, 0.092296, 0.701057, 0.5, 1, -0.701057, -0.0922959, -0.0922959, 0.701057)
 tracks/3/type = "rotation_3d"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ArmatureWide/Skeleton3D:RLeg")
+tracks/3/path = NodePath("Armature/Skeleton3D:RLeg")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = PackedFloat32Array(0, 1, 0.701057, 0.092296, -0.092296, 0.701057, 0.5, 1, 0.701057, -0.0922959, 0.0922959, 0.701057)
@@ -653,30 +664,180 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector3(0.0349066, 0, -0.244346), Vector3(-0.0349066, 0, -0.279253)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_05426"]
+resource_name = "WalkFast"
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:LArm")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.55, -0.2, -0.277, 0.762, 0.5, 1, -0.55, 0.2, 0.277, 0.762)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:RArm")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.55, -0.2, 0.277, 0.762, 0.5, 1, 0.55, 0.2, -0.277, 0.762)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:LLeg")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.683, 0.183, 0.183, 0.683, 0.5, 1, -0.683, -0.183, -0.183, 0.683)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D:RLeg")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.683, 0.183, -0.183, 0.683, 0.5, 1, 0.683, -0.183, 0.183, 0.683)
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("cape:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.0349066, -0.0349066, -0.610865), Vector3(0, 0, -0.471239), Vector3(-0.0349066, 0.0349066, -0.610865), Vector3(0, 0, -0.471239)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.210632),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yv534"]
+resource_name = "Sliding"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -1.5708)]
+}
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:RArm")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.001, -0.679, 0.734, 0.001)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:LArm")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.001, 0.653, 0.758, 0.001)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D:RLeg")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.692, 0, 0, 0.722)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature/Skeleton3D:LLeg")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.688, 0, 0, 0.725)
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("cape:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0191986, -0.0191986, -0.0296706)]
+}
+
+[sub_resource type="Animation" id="Animation_6a1pq"]
+resource_name = "Sitting"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:LLeg")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.478, -0.521, -0.478, 0.521)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:RLeg")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.478, 0.521, -0.478, 0.521)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:RArm")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.574, 0, 0, 0.819)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D:LArm")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.574, 0, 0, 0.819)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ew8p"]
 _data = {
 &"RESET": SubResource("Animation_m6kjv"),
-&"Walk": SubResource("Animation_26i1t")
+&"Sitting": SubResource("Animation_6a1pq"),
+&"Sliding": SubResource("Animation_yv534"),
+&"Walk": SubResource("Animation_26i1t"),
+&"WalkFast": SubResource("Animation_05426")
 }
 
-[node name="player" type="Node3D"]
+[node name="GodotPlayer" type="Node3D"]
 script = ExtResource("1_ic7ak")
 
 [node name="cape" parent="." instance=ExtResource("2_vmgbt")]
-transform = Transform3D(0.981627, 0.190809, 0, -0.190809, 0.981627, 0, 0, 0, 1, -0.5, 1, 0)
+transform = Transform3D(0.998629, 0.0523359, 0, -0.0523359, 0.998629, 0, 0, 0, 1, -0.5, 1, 0)
 
-[node name="CapeCollision" type="StaticBody3D" parent="cape"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cape/CapeCollision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, -1.5071, 0)
-shape = SubResource("BoxShape3D_xjqm1")
-
-[node name="ArmatureSlim" type="Node3D" parent="."]
+[node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.7, 0)
-visible = false
 
-[node name="Skeleton3D" type="Skeleton3D" parent="ArmatureSlim"]
+[node name="Skeleton3D" type="Skeleton3D" parent="Armature"]
 bones/0/name = "Root"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -2.84217e-14)
@@ -717,7 +878,7 @@ bones/5/parent = 4
 bones/5/rest = Transform3D(1, 2.26184e-07, 1.63024e-07, -2.26184e-07, 0.316228, 0.948683, 1.63024e-07, -0.948683, 0.316228, 2.13163e-14, 1.26491, 5.96046e-08)
 bones/5/enabled = true
 bones/5/position = Vector3(2.13163e-14, 1.26491, 5.96046e-08)
-bones/5/rotation = Quaternion(-0.58471, 6.13109e-14, -1.39406e-07, 0.811242)
+bones/5/rotation = Quaternion(-0.584958, 0, -7.08672e-15, 0.811064)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "LArm_end"
 bones/6/parent = 5
@@ -738,7 +899,7 @@ bones/8/parent = 7
 bones/8/rest = Transform3D(1, -2.26184e-07, 1.63024e-07, 2.26184e-07, 0.316228, -0.948684, 1.63024e-07, 0.948683, 0.316228, 4.78557e-14, 1.26491, -2.98023e-08)
 bones/8/enabled = true
 bones/8/position = Vector3(4.78557e-14, 1.26491, -2.98023e-08)
-bones/8/rotation = Quaternion(0.58471, 6.56902e-14, 1.39406e-07, 0.811242)
+bones/8/rotation = Quaternion(0.584958, 0, 7.08538e-15, 0.811064)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "RArm_end"
 bones/9/parent = 8
@@ -780,7 +941,7 @@ bones/14/parent = 13
 bones/14/rest = Transform3D(1, 1.50996e-07, 0, 0, 0, -1, -1.50996e-07, 1, 0, -2.61601e-14, 0.4, -2.9246e-07)
 bones/14/enabled = true
 bones/14/position = Vector3(-2.61601e-14, 0.4, -2.9246e-07)
-bones/14/rotation = Quaternion(0.707107, 5.33851e-08, -5.33851e-08, 0.707107)
+bones/14/rotation = Quaternion(0.707107, 0, 0, 0.707107)
 bones/14/scale = Vector3(1, 1, 1)
 bones/15/name = "RLeg_end"
 bones/15/parent = 14
@@ -790,292 +951,127 @@ bones/15/position = Vector3(-1.66661e-21, 2.4, -9.53207e-09)
 bones/15/rotation = Quaternion(0, -1.38726e-21, 7.10545e-15, 1)
 bones/15/scale = Vector3(1, 1, 1)
 
-[node name="Body" type="MeshInstance3D" parent="ArmatureSlim/Skeleton3D"]
-mesh = SubResource("ArrayMesh_brm6h")
-skin = SubResource("Skin_npq6j")
+[node name="Slim" type="Node3D" parent="Armature/Skeleton3D"]
 
-[node name="BodyOut" type="MeshInstance3D" parent="ArmatureSlim/Skeleton3D"]
-mesh = SubResource("ArrayMesh_5q6f6")
-skin = SubResource("Skin_npq6j")
-
-[node name="Head" type="MeshInstance3D" parent="ArmatureSlim/Skeleton3D"]
-mesh = SubResource("ArrayMesh_kwl5g")
-skin = SubResource("Skin_npq6j")
-
-[node name="HeadOut" type="MeshInstance3D" parent="ArmatureSlim/Skeleton3D"]
-mesh = SubResource("ArrayMesh_0u0tl")
-skin = SubResource("Skin_npq6j")
-
-[node name="LArmOutSlim" type="MeshInstance3D" parent="ArmatureSlim/Skeleton3D"]
-mesh = SubResource("ArrayMesh_d4r6w")
-skin = SubResource("Skin_npq6j")
-
-[node name="LArmSlim" type="MeshInstance3D" parent="ArmatureSlim/Skeleton3D"]
-mesh = SubResource("ArrayMesh_8ywvb")
-skin = SubResource("Skin_npq6j")
-
-[node name="LLeg" type="MeshInstance3D" parent="ArmatureSlim/Skeleton3D"]
-mesh = SubResource("ArrayMesh_k1llv")
-skin = SubResource("Skin_npq6j")
-
-[node name="LLegOut" type="MeshInstance3D" parent="ArmatureSlim/Skeleton3D"]
-mesh = SubResource("ArrayMesh_jindq")
-skin = SubResource("Skin_npq6j")
-
-[node name="RArmOutSlim" type="MeshInstance3D" parent="ArmatureSlim/Skeleton3D"]
-mesh = SubResource("ArrayMesh_gw61s")
-skin = SubResource("Skin_npq6j")
-
-[node name="RArmSlim" type="MeshInstance3D" parent="ArmatureSlim/Skeleton3D"]
-mesh = SubResource("ArrayMesh_ca7br")
-skin = SubResource("Skin_npq6j")
-
-[node name="RLeg" type="MeshInstance3D" parent="ArmatureSlim/Skeleton3D"]
-mesh = SubResource("ArrayMesh_3lde2")
-skin = SubResource("Skin_npq6j")
-
-[node name="RLegOut" type="MeshInstance3D" parent="ArmatureSlim/Skeleton3D"]
-mesh = SubResource("ArrayMesh_1rw60")
-skin = SubResource("Skin_npq6j")
-
-[node name="ArmatureWide" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.7, 0)
-
-[node name="Skeleton3D" type="Skeleton3D" parent="ArmatureWide"]
-bones/0/name = "Root"
-bones/0/parent = -1
-bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -2.84217e-14)
-bones/0/enabled = true
-bones/0/position = Vector3(0, 0.1, -2.84217e-14)
-bones/0/rotation = Quaternion(0, 0, 0, 1)
-bones/0/scale = Vector3(1, 1, 1)
-bones/1/name = "Spine"
-bones/1/parent = 0
-bones/1/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 4.26326e-14)
-bones/1/enabled = true
-bones/1/position = Vector3(0, 2.4, 4.26326e-14)
-bones/1/rotation = Quaternion(0, 0, 0, 1)
-bones/1/scale = Vector3(1, 1, 1)
-bones/2/name = "Head"
-bones/2/parent = 1
-bones/2/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
-bones/2/enabled = true
-bones/2/position = Vector3(0, 2.4, 0)
-bones/2/rotation = Quaternion(0, 0, 0, 1)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/name = "Head_end"
-bones/3/parent = 2
-bones/3/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
-bones/3/enabled = true
-bones/3/position = Vector3(0, 0.8, 0)
-bones/3/rotation = Quaternion(0, 0, 0, 1)
-bones/3/scale = Vector3(1, 1, 1)
-bones/4/name = "LClavice"
-bones/4/parent = 1
-bones/4/rest = Transform3D(1, -1.42109e-14, 2.38419e-07, -2.26184e-07, -0.316228, 0.948683, 7.53946e-08, -0.948683, -0.316228, 0, 2.4, 0)
-bones/4/enabled = true
-bones/4/position = Vector3(0, 2.4, 0)
-bones/4/rotation = Quaternion(-0.811242, 6.9703e-08, -9.67077e-08, 0.58471)
-bones/4/scale = Vector3(1, 1, 1)
-bones/5/name = "LArm"
-bones/5/parent = 4
-bones/5/rest = Transform3D(1, 2.26184e-07, 1.63024e-07, -2.26184e-07, 0.316228, 0.948683, 1.63024e-07, -0.948683, 0.316228, 2.13163e-14, 1.26491, 5.96046e-08)
-bones/5/enabled = true
-bones/5/position = Vector3(2.13163e-14, 1.26491, 5.96046e-08)
-bones/5/rotation = Quaternion(-0.564787, -0.151334, -0.209965, 0.7836)
-bones/5/scale = Vector3(1, 1, 1)
-bones/6/name = "LArm_end"
-bones/6/parent = 5
-bones/6/rest = Transform3D(1, -6.14099e-21, 4.79987e-21, 6.14099e-21, 1, 4.23516e-21, -4.79987e-21, -4.23516e-21, 1, 1.87579e-14, 2, -9.05976e-08)
-bones/6/enabled = true
-bones/6/position = Vector3(1.87579e-14, 2, -9.05976e-08)
-bones/6/rotation = Quaternion(-2.11758e-21, 2.39994e-21, 3.0705e-21, 1)
-bones/6/scale = Vector3(1, 1, 1)
-bones/7/name = "RClavice"
-bones/7/parent = 1
-bones/7/rest = Transform3D(1, 7.10543e-15, 2.38419e-07, 2.26184e-07, -0.316228, -0.948683, 7.53947e-08, 0.948683, -0.316228, 0, 2.4, 0)
-bones/7/enabled = true
-bones/7/position = Vector3(0, 2.4, 0)
-bones/7/rotation = Quaternion(0.811242, 6.9703e-08, 9.67077e-08, 0.58471)
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/name = "RArm"
-bones/8/parent = 7
-bones/8/rest = Transform3D(1, -2.26184e-07, 1.63024e-07, 2.26184e-07, 0.316228, -0.948684, 1.63024e-07, 0.948683, 0.316228, 4.78557e-14, 1.26491, -2.98023e-08)
-bones/8/enabled = true
-bones/8/position = Vector3(4.78557e-14, 1.26491, -2.98023e-08)
-bones/8/rotation = Quaternion(0.579708, -0.07632, 0.105889, 0.804302)
-bones/8/scale = Vector3(1, 1, 1)
-bones/9/name = "RArm_end"
-bones/9/parent = 8
-bones/9/rest = Transform3D(1, -8.47033e-22, -2.84217e-14, 8.47033e-22, 1, -1.06581e-14, 2.84217e-14, 1.06581e-14, 1, -7.28268e-15, 2, 4.76984e-09)
-bones/9/enabled = true
-bones/9/position = Vector3(-7.28268e-15, 2, 4.76984e-09)
-bones/9/rotation = Quaternion(5.32905e-15, -1.42108e-14, 4.23517e-22, 1)
-bones/9/scale = Vector3(1, 1, 1)
-bones/10/name = "PelvisL"
-bones/10/parent = 0
-bones/10/rest = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 2.4, 4.26326e-14)
-bones/10/enabled = true
-bones/10/position = Vector3(0, 2.4, 4.26326e-14)
-bones/10/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
-bones/10/scale = Vector3(1, 1, 1)
-bones/11/name = "LLeg"
-bones/11/parent = 10
-bones/11/rest = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0.4, -5.4041e-08)
-bones/11/enabled = true
-bones/11/position = Vector3(0, 0.4, -5.4041e-08)
-bones/11/rotation = Quaternion(-0.701057, 0.092296, 0.092296, 0.701057)
-bones/11/scale = Vector3(1, 1, 1)
-bones/12/name = "LLeg_end"
-bones/12/parent = 11
-bones/12/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, -9.53207e-09)
-bones/12/enabled = true
-bones/12/position = Vector3(0, 2.4, -9.53207e-09)
-bones/12/rotation = Quaternion(0, 0, 0, 1)
-bones/12/scale = Vector3(1, 1, 1)
-bones/13/name = "PelvisR"
-bones/13/parent = 0
-bones/13/rest = Transform3D(1, 0, -1.50996e-07, -1.50996e-07, 0, -1, 0, 1, 0, 0, 2.4, 4.26326e-14)
-bones/13/enabled = true
-bones/13/position = Vector3(0, 2.4, 4.26326e-14)
-bones/13/rotation = Quaternion(0.707107, -5.33851e-08, -5.33851e-08, 0.707107)
-bones/13/scale = Vector3(1, 1, 1)
-bones/14/name = "RLeg"
-bones/14/parent = 13
-bones/14/rest = Transform3D(1, 1.50996e-07, 0, 0, 0, -1, -1.50996e-07, 1, 0, -2.61601e-14, 0.4, -2.9246e-07)
-bones/14/enabled = true
-bones/14/position = Vector3(-2.61601e-14, 0.4, -2.9246e-07)
-bones/14/rotation = Quaternion(0.701057, 0.092296, -0.092296, 0.701057)
-bones/14/scale = Vector3(1, 1, 1)
-bones/15/name = "RLeg_end"
-bones/15/parent = 14
-bones/15/rest = Transform3D(1, -1.42109e-14, -2.77452e-21, 1.42109e-14, 1, -1.97141e-35, 2.77452e-21, -1.97141e-35, 1, -1.66661e-21, 2.4, -9.53207e-09)
-bones/15/enabled = true
-bones/15/position = Vector3(-1.66661e-21, 2.4, -9.53207e-09)
-bones/15/rotation = Quaternion(0, -1.38726e-21, 7.10545e-15, 1)
-bones/15/scale = Vector3(1, 1, 1)
-
-[node name="Slim" type="Node3D" parent="ArmatureWide/Skeleton3D"]
-
-[node name="Body" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Slim"]
+[node name="Body" type="MeshInstance3D" parent="Armature/Skeleton3D/Slim"]
 mesh = SubResource("ArrayMesh_brm6h")
 skin = SubResource("Skin_npq6j")
 skeleton = NodePath("../..")
 
-[node name="BodyOut" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Slim"]
+[node name="BodyOut" type="MeshInstance3D" parent="Armature/Skeleton3D/Slim"]
 mesh = SubResource("ArrayMesh_5q6f6")
 skin = SubResource("Skin_npq6j")
 skeleton = NodePath("../..")
 
-[node name="Head" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Slim"]
+[node name="Head" type="MeshInstance3D" parent="Armature/Skeleton3D/Slim"]
 mesh = SubResource("ArrayMesh_kwl5g")
 skin = SubResource("Skin_npq6j")
 skeleton = NodePath("../..")
 
-[node name="HeadOut" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Slim"]
+[node name="HeadOut" type="MeshInstance3D" parent="Armature/Skeleton3D/Slim"]
 mesh = SubResource("ArrayMesh_0u0tl")
 skin = SubResource("Skin_npq6j")
 skeleton = NodePath("../..")
 
-[node name="LArmOutSlim" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Slim"]
+[node name="LArmOutSlim" type="MeshInstance3D" parent="Armature/Skeleton3D/Slim"]
 mesh = SubResource("ArrayMesh_d4r6w")
 skin = SubResource("Skin_npq6j")
 skeleton = NodePath("../..")
 
-[node name="LArmSlim" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Slim"]
+[node name="LArmSlim" type="MeshInstance3D" parent="Armature/Skeleton3D/Slim"]
 mesh = SubResource("ArrayMesh_8ywvb")
 skin = SubResource("Skin_npq6j")
 skeleton = NodePath("../..")
 
-[node name="LLeg" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Slim"]
+[node name="LLeg" type="MeshInstance3D" parent="Armature/Skeleton3D/Slim"]
 mesh = SubResource("ArrayMesh_k1llv")
 skin = SubResource("Skin_npq6j")
 skeleton = NodePath("../..")
 
-[node name="LLegOut" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Slim"]
+[node name="LLegOut" type="MeshInstance3D" parent="Armature/Skeleton3D/Slim"]
 mesh = SubResource("ArrayMesh_jindq")
 skin = SubResource("Skin_npq6j")
 skeleton = NodePath("../..")
 
-[node name="RArmOutSlim" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Slim"]
+[node name="RArmOutSlim" type="MeshInstance3D" parent="Armature/Skeleton3D/Slim"]
 mesh = SubResource("ArrayMesh_gw61s")
 skin = SubResource("Skin_npq6j")
 skeleton = NodePath("../..")
 
-[node name="RArmSlim" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Slim"]
+[node name="RArmSlim" type="MeshInstance3D" parent="Armature/Skeleton3D/Slim"]
 mesh = SubResource("ArrayMesh_ca7br")
 skin = SubResource("Skin_npq6j")
 skeleton = NodePath("../..")
 
-[node name="RLeg" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Slim"]
+[node name="RLeg" type="MeshInstance3D" parent="Armature/Skeleton3D/Slim"]
 mesh = SubResource("ArrayMesh_3lde2")
 skin = SubResource("Skin_npq6j")
 skeleton = NodePath("../..")
 
-[node name="RLegOut" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Slim"]
+[node name="RLegOut" type="MeshInstance3D" parent="Armature/Skeleton3D/Slim"]
 mesh = SubResource("ArrayMesh_1rw60")
 skin = SubResource("Skin_npq6j")
 skeleton = NodePath("../..")
 
-[node name="Wide" type="Node3D" parent="ArmatureWide/Skeleton3D"]
+[node name="Wide" type="Node3D" parent="Armature/Skeleton3D"]
 visible = false
 
-[node name="Body" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Wide"]
+[node name="Body" type="MeshInstance3D" parent="Armature/Skeleton3D/Wide"]
 mesh = SubResource("ArrayMesh_ms1tc")
 skin = SubResource("Skin_1eqeo")
 skeleton = NodePath("../..")
 
-[node name="BodyOut" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Wide"]
+[node name="BodyOut" type="MeshInstance3D" parent="Armature/Skeleton3D/Wide"]
 mesh = SubResource("ArrayMesh_fuosl")
 skin = SubResource("Skin_1eqeo")
 skeleton = NodePath("../..")
 
-[node name="Head" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Wide"]
+[node name="Head" type="MeshInstance3D" parent="Armature/Skeleton3D/Wide"]
 mesh = SubResource("ArrayMesh_h4nqj")
 skin = SubResource("Skin_1eqeo")
 skeleton = NodePath("../..")
 
-[node name="HeadOut" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Wide"]
+[node name="HeadOut" type="MeshInstance3D" parent="Armature/Skeleton3D/Wide"]
 mesh = SubResource("ArrayMesh_0a5o1")
 skin = SubResource("Skin_1eqeo")
 skeleton = NodePath("../..")
 
-[node name="LArm" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Wide"]
+[node name="LArm" type="MeshInstance3D" parent="Armature/Skeleton3D/Wide"]
 mesh = SubResource("ArrayMesh_th0nt")
 skin = SubResource("Skin_1eqeo")
 skeleton = NodePath("../..")
 
-[node name="LArmOut" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Wide"]
+[node name="LArmOut" type="MeshInstance3D" parent="Armature/Skeleton3D/Wide"]
 mesh = SubResource("ArrayMesh_0rg84")
 skin = SubResource("Skin_1eqeo")
 skeleton = NodePath("../..")
 
-[node name="LLeg" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Wide"]
+[node name="LLeg" type="MeshInstance3D" parent="Armature/Skeleton3D/Wide"]
 mesh = SubResource("ArrayMesh_0bw58")
 skin = SubResource("Skin_1eqeo")
 skeleton = NodePath("../..")
 
-[node name="LLegOut" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Wide"]
+[node name="LLegOut" type="MeshInstance3D" parent="Armature/Skeleton3D/Wide"]
 mesh = SubResource("ArrayMesh_h65ga")
 skin = SubResource("Skin_1eqeo")
 skeleton = NodePath("../..")
 
-[node name="RArm" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Wide"]
+[node name="RArm" type="MeshInstance3D" parent="Armature/Skeleton3D/Wide"]
 mesh = SubResource("ArrayMesh_gnvdv")
 skin = SubResource("Skin_1eqeo")
 skeleton = NodePath("../..")
 
-[node name="RArmOut" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Wide"]
+[node name="RArmOut" type="MeshInstance3D" parent="Armature/Skeleton3D/Wide"]
 mesh = SubResource("ArrayMesh_l5gtc")
 skin = SubResource("Skin_1eqeo")
 skeleton = NodePath("../..")
 
-[node name="RLeg" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Wide"]
+[node name="RLeg" type="MeshInstance3D" parent="Armature/Skeleton3D/Wide"]
 mesh = SubResource("ArrayMesh_yagjj")
 skin = SubResource("Skin_1eqeo")
 skeleton = NodePath("../..")
 
-[node name="RLegOut" type="MeshInstance3D" parent="ArmatureWide/Skeleton3D/Wide"]
+[node name="RLegOut" type="MeshInstance3D" parent="Armature/Skeleton3D/Wide"]
 mesh = SubResource("ArrayMesh_2dob1")
 skin = SubResource("Skin_1eqeo")
 skeleton = NodePath("../..")
@@ -1085,12 +1081,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_4ew8p")
 }
 autoplay = "Walk"
-speed_scale = 0.4
 
-[node name="Anchor" type="Node3D" parent="."]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Anchor"]
-transform = Transform3D(0.707107, -0.247634, 0.662327, 0, 0.936672, 0.350207, -0.707107, -0.247634, 0.662327, 4, 1.6, 4)
-projection = 1
-size = 8.0
+[editable path="cape"]

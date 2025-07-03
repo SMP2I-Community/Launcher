@@ -57,7 +57,12 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 		print_debug("Incorrect sha, can't replace github's file")
 		wrong_sha.emit()
 	else:
-		printt("Github files response:", response_code, JSON.parse_string(body.get_string_from_utf8()).get("message", "ok"))
+		var data = JSON.parse_string(body.get_string_from_utf8())
+		if data == null:
+			print_debug("data is null :/ (no connection ig)")
+			return
+		print_debug("Github files response:", response_code, data.get("message", "ok"))
+
 
 class GithubFileData extends RefCounted:
 	var sha: String

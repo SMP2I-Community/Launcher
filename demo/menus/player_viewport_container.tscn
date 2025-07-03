@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b2mp5ed0vs4pf"]
 
-[ext_resource type="PackedScene" uid="uid://b37yxgwl3lhrf" path="res://demo/3d/player_godot.tscn" id="1_43n2w"]
 [ext_resource type="Script" uid="uid://dkosta32p7pyq" path="res://demo/menus/player_viewport_container.gd" id="1_pea4d"]
+[ext_resource type="PackedScene" uid="uid://ctmnbplu5lak0" path="res://demo/3d/rotating_godot_player.tscn" id="2_bm8qw"]
 
 [sub_resource type="Environment" id="Environment_v363f"]
 background_mode = 1
@@ -31,6 +31,7 @@ screen_space_aa = 1
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="player" parent="SubViewport" instance=ExtResource("1_43n2w")]
+[node name="player" parent="SubViewport" instance=ExtResource("2_bm8qw")]
+rotation_speed = 0.15
 
 [connection signal="change_cape_request" from="SubViewport/player" to="." method="_on_player_change_cape_request"]
