@@ -975,53 +975,41 @@ tracks/3/keys = PackedFloat32Array(0, 1, -0.574, 0, 0, 0.819)
 
 [sub_resource type="Animation" id="Animation_yv534"]
 resource_name = "Sliding"
-tracks/0/type = "value"
+tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
+tracks/0/path = NodePath("Armature/Skeleton3D:RArm")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, -1.5708)]
-}
+tracks/0/keys = PackedFloat32Array(0, 1, 0.001, -0.679, 0.734, 0.001)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Armature/Skeleton3D:RArm")
+tracks/1/path = NodePath("Armature/Skeleton3D:LArm")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.001, -0.679, 0.734, 0.001)
+tracks/1/keys = PackedFloat32Array(0, 1, -0.001, 0.653, 0.758, 0.001)
 tracks/2/type = "rotation_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Armature/Skeleton3D:LArm")
+tracks/2/path = NodePath("Armature/Skeleton3D:RLeg")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, -0.001, 0.653, 0.758, 0.001)
+tracks/2/keys = PackedFloat32Array(0, 1, 0.692, 0, 0, 0.722)
 tracks/3/type = "rotation_3d"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Armature/Skeleton3D:RLeg")
+tracks/3/path = NodePath("Armature/Skeleton3D:LLeg")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 0.692, 0, 0, 0.722)
-tracks/4/type = "rotation_3d"
+tracks/3/keys = PackedFloat32Array(0, 1, -0.688, 0, 0, 0.725)
+tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Armature/Skeleton3D:LLeg")
+tracks/4/path = NodePath("cape:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array(0, 1, -0.688, 0, 0, 0.725)
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("cape:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -1244,7 +1232,7 @@ bones/11/name = "LLeg"
 bones/11/parent = 10
 bones/11/rest = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0.4, -5.4041e-08)
 bones/11/enabled = true
-bones/11/position = Vector3(-0.4, 0.4, 0)
+bones/11/position = Vector3(0, 0.4, -5.4041e-08)
 bones/11/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 bones/11/scale = Vector3(1, 1, 1)
 bones/12/name = "LLeg_end"
@@ -1265,7 +1253,7 @@ bones/14/name = "RLeg"
 bones/14/parent = 13
 bones/14/rest = Transform3D(1, 1.50996e-07, 0, 0, 0, -1, -1.50996e-07, 1, 0, -2.61601e-14, 0.4, -2.9246e-07)
 bones/14/enabled = true
-bones/14/position = Vector3(-0.4, 0.4, 0)
+bones/14/position = Vector3(-2.61601e-14, 0.4, -2.9246e-07)
 bones/14/rotation = Quaternion(0.707107, 3.55271e-15, -3.55271e-15, 0.707107)
 bones/14/scale = Vector3(1, 1, 1)
 bones/15/name = "RLeg_end"

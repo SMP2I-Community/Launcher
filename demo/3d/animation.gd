@@ -19,9 +19,11 @@ var animations: Array[Callable] = [
 ]
 
 func _ready() -> void:
+	randomize()
 	animation_player.speed_scale = 1.0
 	select_skin()
 	select_animation()
+	sliding()
 
 
 func select_skin():

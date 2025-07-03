@@ -62,12 +62,6 @@ transform = Transform3D(0.998629, 0.052336, 0, -0.052336, 0.998629, 0, 0, 0, 1, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, -1.5071, 0)
 shape = SubResource("BoxShape3D_qfiwi")
 
-[node name="Skeleton3D" parent="Armature" index="0"]
-bones/5/rotation = Quaternion(-0.584958, 7.10543e-15, 1.42296e-14, 0.811064)
-bones/8/rotation = Quaternion(0.584958, 7.10543e-15, -1.42309e-14, 0.811064)
-bones/11/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
-bones/14/rotation = Quaternion(0.707107, 3.55271e-15, -3.55271e-15, 0.707107)
-
 [node name="Body" parent="Armature/Skeleton3D/Slim" index="0"]
 mesh = SubResource("ArrayMesh_vyh15")
 
