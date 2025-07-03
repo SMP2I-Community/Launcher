@@ -9,7 +9,6 @@ var animations: Array[Callable] = [
 	walk_fast,
 	staring,
 	walk_upside_down,
-	sliding,
 	rotating,
 	sitting,
 	jojo_pose,
@@ -23,7 +22,6 @@ func _ready() -> void:
 	animation_player.speed_scale = 1.0
 	select_skin()
 	select_animation()
-	sliding()
 
 
 func select_skin():

@@ -54,13 +54,17 @@ rotation_speed = 0.002
 hide_cape_if_empty = false
 
 [node name="cape" parent="." index="0"]
-transform = Transform3D(0.998629, 0.052336, 0, -0.052336, 0.998629, 0, 0, 0, 1, -0.5, 1, 0)
+transform = Transform3D(0.998629, 0.052336, 0, -0.0523359, 0.998629, 0, 0, 0, 1, -0.5, 1, 0)
 
 [node name="CapeCollision" type="StaticBody3D" parent="cape" index="1"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cape/CapeCollision" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, -1.5071, 0)
 shape = SubResource("BoxShape3D_qfiwi")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/11/position = Vector3(-0.4, 0.4, 0)
+bones/14/position = Vector3(-0.4, 0.4, 0)
 
 [node name="Body" parent="Armature/Skeleton3D/Slim" index="0"]
 mesh = SubResource("ArrayMesh_vyh15")
