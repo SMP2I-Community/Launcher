@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bi7o1hhhj8vhe"]
-
-[ext_resource type="Shader" uid="uid://b7pv06tbvwms" path="res://demo/background/background_test.tres" id="1_7thax"]
-
-[resource]
-shader = ExtResource("1_7thax")
-shader_parameter/BorderColor = Color(0.372549, 0.372549, 0.827451, 1)
-shader_parameter/InColor = Color(0.972549, 0.972549, 0.992157, 1)

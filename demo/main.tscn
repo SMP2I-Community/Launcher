@@ -1,9 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://bnvlws7lnrdw"]
+[gd_scene load_steps=21 format=3 uid="uid://bnvlws7lnrdw"]
 
 [ext_resource type="Theme" uid="uid://dmajl82kqvoml" path="res://demo/assets/themes/main_theme.tres" id="1_3r4ql"]
 [ext_resource type="Script" uid="uid://bv83qgwbfu3rg" path="res://demo/main.gd" id="2_3qh5v"]
 [ext_resource type="PackedScene" uid="uid://c77lr42fyc6sd" path="res://demo/minecraft/minecraft.tscn" id="3_27lkm"]
-[ext_resource type="PackedScene" uid="uid://bdldpvq2ibhu4" path="res://demo/skin_sender.tscn" id="13_fdg1k"]
 [ext_resource type="Script" uid="uid://b8su7m0ebsh0a" path="res://demo/mass_downloads.gd" id="16_nwv5g"]
 [ext_resource type="PackedScene" uid="uid://bat3n2cmf3i2b" path="res://demo/menus/capes_selector_window.tscn" id="17_cidaf"]
 [ext_resource type="PackedScene" uid="uid://b2mp5ed0vs4pf" path="res://demo/menus/player_viewport_container.tscn" id="18_x1xes"]
@@ -295,8 +294,6 @@ script = ExtResource("24_cw4ra")
 
 [node name="QuitTimer" type="Timer" parent="."]
 wait_time = 7.0
-
-[node name="SkinSender" parent="." instance=ExtResource("13_fdg1k")]
 
 [connection signal="on_minecraft_run" from="Minecraft" to="." method="_on_minecraft_on_minecraft_run"]
 [connection signal="file_selected" from="SkinFileDialog" to="." method="_on_skin_file_dialog_file_selected"]

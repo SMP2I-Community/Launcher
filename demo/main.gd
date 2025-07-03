@@ -29,17 +29,12 @@ var cape_mat: StandardMaterial3D = preload("res://demo/assets/materials/cape.tre
 @onready var minecraft: Node = $Minecraft
 
 func _ready() -> void:
-	_init_curseforge_api()
 	_init_github_api()
 	
 	player_name_line_edit.text = ProfileManager.get_player_name()
 	progress_bar.hide()
 	
 	minecraft.install()
-
-func _init_curseforge_api():
-	var file = FileAccess.open(CURSEFORGE_KEY_PATH, FileAccess.READ)
-	CurseforgeAPI.init(file.get_line())
 
 func _init_github_api():
 	var file = FileAccess.open(GITHUB_KEY_PATH, FileAccess.READ)
