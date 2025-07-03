@@ -27,6 +27,7 @@ var is_installing := false
 var must_execute_in := false
 var must_execute: JavaExecutor
 var must_callback: Callable
+var must_path: String
 
 func _ready() -> void:
 	_init_http_request()
@@ -101,8 +102,11 @@ func _on_extracted(files: Array[String]):
 	print_debug("Java installed")
 	_progress = INSTALLED_PROGRESS_VALUE
 	if must_execute != null:
+		if must_execute_in:
+			_execute_in(must_path, must_execute, must_callback)
+		else:
 		# We don't want to enter a loop where is_installed return false and java is downloaded again
-		_execute(must_execute, must_callback)
+			_execute(must_execute, must_callback)
 #endregion
 
 var thread: Thread
@@ -155,6 +159,7 @@ func execute_in(path: String, executor: JavaExecutor, callback := Callable()):
 	if not is_installed():
 		must_execute = executor
 		must_callback = callback
+		must_path = path
 		must_execute_in = true
 		install()
 	else:
