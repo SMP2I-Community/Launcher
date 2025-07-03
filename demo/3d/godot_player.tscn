@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://b37yxgwl3lhrf"]
+[gd_scene load_steps=39 format=4 uid="uid://b37yxgwl3lhrf"]
 
 [ext_resource type="Material" uid="uid://bdrh2jj7c4oc3" path="res://demo/assets/materials/player_godot.tres" id="1_1alkx"]
 [ext_resource type="Script" uid="uid://yhdbuxkgsn8n" path="res://demo/3d/godot_player.gd" id="1_ic7ak"]
@@ -620,6 +620,48 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Armature/Skeleton3D:Spine")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/7/type = "position_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Armature/Skeleton3D:Root")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0, 0.1, -2.84217e-14)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Armature/Skeleton3D:Root")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/9/type = "position_3d"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Armature/Skeleton3D:Spine")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, 0, 2.4, 4.26326e-14)
+tracks/10/type = "position_3d"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Armature/Skeleton3D:Head")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, 0, 2.4, 0)
+tracks/11/type = "rotation_3d"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Armature/Skeleton3D:Head")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_26i1t"]
 resource_name = "Walk"
@@ -819,8 +861,181 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = PackedFloat32Array(0, 1, -0.574, 0, 0, 0.819)
 
+[sub_resource type="Animation" id="Animation_e1k5l"]
+resource_name = "JojoPose"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:LArm")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.455, 1.395, -0.93)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:LArm")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.835, -0.155, 0.096, -0.519)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:RArm")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.338, -0.215, 0.08, 0.913)
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D:RArm")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 4.78557e-14, 1.26491, -2.98023e-08)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature/Skeleton3D:RLeg")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.597, 0.056, -0.042, 0.799)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Armature/Skeleton3D:LLeg")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.634, 0.065, 0.054, 0.769)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Armature/Skeleton3D:Spine")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0, 0, 0.109, 0.994)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Armature/Skeleton3D:Head")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(1, 1, 0, 0, -0.165, 0.986)
+
+[sub_resource type="Animation" id="Animation_i73y3"]
+resource_name = "JotaroPose"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:RArm")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.079, 0.703, -0.238, 0.665)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:Head")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.087, -0.599, -0.114, 0.788)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:Root")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0.481, 0, 0.877)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D:RLeg")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.598, -0.015, 0.011, 0.801)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature/Skeleton3D:LLeg")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.682, 0, 0, 0.731)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Armature/Skeleton3D:LArm")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.5, -0.034, -0.02, 0.865)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Armature/Skeleton3D:Spine")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.039, 0, 0, 0.999)
+
+[sub_resource type="Animation" id="Animation_aojvp"]
+resource_name = "JosephPose"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:RArm")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.4, 1.055, -1.5)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:RLeg")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.89, 0)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:RLeg")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.794, 0.038, -0.049, -0.604)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D:Spine")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.044, 0, 0, 0.999)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature/Skeleton3D:LLeg")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.707, -0.002, -0.002, 0.707)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Armature/Skeleton3D:RArm")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 0.995087, -0.0700061, 0.0500043, -0.0490043)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Armature/Skeleton3D:LArm")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -1, 0, 0, -0.014)
+tracks/7/type = "position_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Armature/Skeleton3D:LArm")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, -0.26, 0.925, 1.75)
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ew8p"]
 _data = {
+&"JojoPose": SubResource("Animation_e1k5l"),
+&"JosephPose": SubResource("Animation_aojvp"),
+&"JotaroPose": SubResource("Animation_i73y3"),
 &"RESET": SubResource("Animation_m6kjv"),
 &"Sitting": SubResource("Animation_6a1pq"),
 &"Sliding": SubResource("Animation_yv534"),
@@ -877,7 +1092,7 @@ bones/5/name = "LArm"
 bones/5/parent = 4
 bones/5/rest = Transform3D(1, 2.26184e-07, 1.63024e-07, -2.26184e-07, 0.316228, 0.948683, 1.63024e-07, -0.948683, 0.316228, 2.13163e-14, 1.26491, 5.96046e-08)
 bones/5/enabled = true
-bones/5/position = Vector3(2.13163e-14, 1.26491, 5.96046e-08)
+bones/5/position = Vector3(-0.26, 0.925, 1.75)
 bones/5/rotation = Quaternion(-0.584958, 0, -7.08672e-15, 0.811064)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "LArm_end"
@@ -898,7 +1113,7 @@ bones/8/name = "RArm"
 bones/8/parent = 7
 bones/8/rest = Transform3D(1, -2.26184e-07, 1.63024e-07, 2.26184e-07, 0.316228, -0.948684, 1.63024e-07, 0.948683, 0.316228, 4.78557e-14, 1.26491, -2.98023e-08)
 bones/8/enabled = true
-bones/8/position = Vector3(4.78557e-14, 1.26491, -2.98023e-08)
+bones/8/position = Vector3(-0.4, 1.055, -1.5)
 bones/8/rotation = Quaternion(0.584958, 0, 7.08538e-15, 0.811064)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "RArm_end"
@@ -940,7 +1155,7 @@ bones/14/name = "RLeg"
 bones/14/parent = 13
 bones/14/rest = Transform3D(1, 1.50996e-07, 0, 0, 0, -1, -1.50996e-07, 1, 0, -2.61601e-14, 0.4, -2.9246e-07)
 bones/14/enabled = true
-bones/14/position = Vector3(-2.61601e-14, 0.4, -2.9246e-07)
+bones/14/position = Vector3(0, 0.89, 0)
 bones/14/rotation = Quaternion(0.707107, 0, 0, 0.707107)
 bones/14/scale = Vector3(1, 1, 1)
 bones/15/name = "RLeg_end"
@@ -948,7 +1163,7 @@ bones/15/parent = 14
 bones/15/rest = Transform3D(1, -1.42109e-14, -2.77452e-21, 1.42109e-14, 1, -1.97141e-35, 2.77452e-21, -1.97141e-35, 1, -1.66661e-21, 2.4, -9.53207e-09)
 bones/15/enabled = true
 bones/15/position = Vector3(-1.66661e-21, 2.4, -9.53207e-09)
-bones/15/rotation = Quaternion(0, -1.38726e-21, 7.10545e-15, 1)
+bones/15/rotation = Quaternion(5.66797e-41, -1.38726e-21, 7.10545e-15, 1)
 bones/15/scale = Vector3(1, 1, 1)
 
 [node name="Slim" type="Node3D" parent="Armature/Skeleton3D"]
