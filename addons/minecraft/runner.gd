@@ -20,6 +20,17 @@ func run():
 	jvm_args.xmx = "%sG" % Config.max_ram
 	
 	executor.options.append_array(jvm_args.to_array())
+	if Utils.get_os_type() == Utils.OS_TYPE.WINDOWS:
+		executor.options.append_array([
+			"-XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump",
+			"-XX:+UnlockExperimentalVMOptions",
+			"-XX:+UseG1GC",
+			"-XX:G1NewSizePercent=20",
+			"-XX:G1ReservePercent=20",
+			"-XX:MaxGCPauseMillis=50",
+			"-XX:G1HeapRegionSize=32M"
+		])
+	
 	executor.options.append(tweaker.get_main_class())
 	executor.options.append_array(game_args.to_array())
 	
