@@ -44,28 +44,49 @@ func _on_threader_finished(threader_idx: int):
 
 func install(asset_index: AssetIndex):
 	var objects = await get_assets_list(asset_index)
-	#assets_number = len(objects)
-	assets_number = 0
+	assets_number = objects.size()
 	
-	var current_threader_idx := 0
-	for asset_path: String in objects:
-		var threader := threaders[current_threader_idx]
-		var asset_data = objects[asset_path]
-		
-		var asset := Asset.new(asset_data, assets_folder)
-		threader.add_child.call_deferred(asset)
-		assets_number += 1
-		
-		current_threader_idx = (current_threader_idx + 1) % threaders.size()
-		if current_threader_idx == 0:
-			await get_tree().create_timer(0.001).timeout
+	var threaders_assets = partition(objects.values(), threaders.size())
 	
-	for threader: Threader in threaders:
-		var threader_assets = threader.get_children()
-		threader.start(_threader_callable.bind(threader, threader_assets))
+	#print(partition([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ,21 ,22, 23, 24], 12))
+	
+	#var current_threader_idx := 0
+	#for asset_path: String in objects:
+		#var threader := threaders[current_threader_idx]
+		#var asset_data = objects[asset_path]
+		#
+		#var asset := Asset.new(asset_data, assets_folder)
+		#threader.add_child(asset)
+		#
+		#current_threader_idx = (current_threader_idx + 1) % threaders.size()
+	#
+	for i in range(threaders.size()):
+		var threader: Threader = threaders[i]
+		var assets_data: Array = threaders_assets[i]
+		threader.start(_threader_callable.bind(threader, assets_data, assets_folder))
+		print("threader %s starting" % i)
 
-func _threader_callable(threader: Threader, assets: Array):
-	_asset_callback(threader, null, assets)
+func partition(values: Array, amount: int) -> Array[Array]:
+	var partitions: Array[Array] = []
+	
+	var partition_size: int = int(values.size() / amount)
+	for i in range(amount-1):
+		partitions.append(values.slice(i * partition_size, (i+1) * partition_size))
+	
+	partitions.append(values.slice((amount-1) * partition_size))
+	
+	return partitions
+
+func _threader_callable(threader: Threader, assets_data: Array, assets_folder: String):
+	var asset_data = assets_data.pop_front()
+	if asset_data == null:
+		print_debug("All assets of %s have been downloaded" % threader.name)
+		threader.finished.emit()
+		return
+	
+	var asset = Asset.new(asset_data, assets_folder)
+	threader.download.call_deferred(asset, _threader_callable.bind(threader, assets_data, assets_folder))
+
 
 func _asset_callback(threader: Threader, asset: Asset, assets: Array):
 	if asset != null:
@@ -80,17 +101,17 @@ func _asset_callback(threader: Threader, asset: Asset, assets: Array):
 	
 	next_asset.download.call_deferred(_asset_callback.bind(threader, next_asset, assets))
 
-func get_assets_pending_count() -> int:
+func get_assets_downloaded() -> int:
 	var assets_pending := 0
 	for threader: Threader in threaders:
 		assets_pending += threader.get_progress()
 	return assets_pending
 
 func get_progress() -> int:
-	return assets_number - get_assets_pending_count()
+	return get_assets_downloaded()
 
 func has_finished() -> bool:
-	return get_assets_pending_count() == 0
+	return get_assets_downloaded() >= assets_number # we never know
 
 func get_assets_list(asset_index: AssetIndex) -> Dictionary:
 	var asset_index_path = assets_folder.path_join("indexes/%s.json" % asset_index.get_id())

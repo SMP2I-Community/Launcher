@@ -46,7 +46,10 @@ func _artifact_callback(threader: Threader, artifact: Artifact, artifacts: Array
 		threader.remove_child.call_deferred(artifact)
 		artifact.queue_free.call_deferred()
 	
-	var next_artifact: Artifact = artifacts.pop_front()
+	var next_artifact = artifacts.pop_front()
+	if not next_artifact is Artifact: #WARNING: because of the inner HTTPRequest
+		next_artifact = artifacts.pop_front()
+	
 	if next_artifact == null:
 		print_debug("All artifacts of %s have been downloaded" % threader.name)
 		threader.finished.emit()
