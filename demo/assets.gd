@@ -12,6 +12,8 @@ func get_minecraft_folder() -> String:
 
 func install(asset_index: AssetIndex):
 	var minecraft_assets_folder := get_minecraft_folder().path_join("assets")
+	print_debug("Minecraft assets folder: ", minecraft_assets_folder)
+	
 	if DirAccess.dir_exists_absolute(minecraft_assets_folder):
 		assets_folder = minecraft_assets_folder
 	

@@ -44,7 +44,8 @@ func _on_threader_finished(threader_idx: int):
 
 func install(asset_index: AssetIndex):
 	var objects = await get_assets_list(asset_index)
-	assets_number = len(objects)
+	#assets_number = len(objects)
+	assets_number = 0
 	
 	var current_threader_idx := 0
 	for asset_path: String in objects:
@@ -52,9 +53,12 @@ func install(asset_index: AssetIndex):
 		var asset_data = objects[asset_path]
 		
 		var asset := Asset.new(asset_data, assets_folder)
-		threader.add_child(asset)
+		threader.add_child.call_deferred(asset)
+		assets_number += 1
 		
 		current_threader_idx = (current_threader_idx + 1) % threaders.size()
+		if current_threader_idx == 0:
+			await get_tree().create_timer(0.001).timeout
 	
 	for threader: Threader in threaders:
 		var threader_assets = threader.get_children()
