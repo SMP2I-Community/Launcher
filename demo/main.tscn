@@ -299,7 +299,7 @@ process_thread_messages = 0
 script = ExtResource("24_cw4ra")
 
 [node name="QuitTimer" type="Timer" parent="."]
-wait_time = 7.0
+wait_time = 15.0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1
