@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://b37yxgwl3lhrf"]
+[gd_scene load_steps=41 format=4 uid="uid://b37yxgwl3lhrf"]
 
 [ext_resource type="Material" uid="uid://bdrh2jj7c4oc3" path="res://demo/assets/materials/player_godot.tres" id="1_1alkx"]
 [ext_resource type="Script" uid="uid://yhdbuxkgsn8n" path="res://demo/3d/godot_player.gd" id="1_ic7ak"]
@@ -941,6 +941,18 @@ tracks/12/keys = {
 "update": 0,
 "values": [Vector3(-0.5, 1, 0)]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("cape:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_6a1pq"]
 resource_name = "Sitting"
@@ -1128,6 +1140,60 @@ tracks/5/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_1hgjy"]
+resource_name = "Wide"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Root")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 2, 1, 1, 1, 10, 4, 1, 1, 1, 1)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:Root")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.1, -2.84217e-14, 2, 1, 0, 0.1, -12.6, 4, 1, 0, 0, -25.2)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("cape:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 1, 10), Vector3(1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("cape:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.5, 1, 0), Vector3(-0.5, 1, -12.6), Vector3(-0.5, 1, -25.2)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature/Skeleton3D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ew8p"]
 _data = {
 &"Dog": SubResource("Animation_7mls4"),
@@ -1138,14 +1204,15 @@ _data = {
 &"Sitting": SubResource("Animation_6a1pq"),
 &"Sliding": SubResource("Animation_yv534"),
 &"Walk": SubResource("Animation_26i1t"),
-&"WalkFast": SubResource("Animation_05426")
+&"WalkFast": SubResource("Animation_05426"),
+&"Wide": SubResource("Animation_1hgjy")
 }
 
 [node name="GodotPlayer" type="Node3D"]
 script = ExtResource("1_ic7ak")
 
 [node name="cape" parent="." instance=ExtResource("2_vmgbt")]
-transform = Transform3D(0.998629, 0.052336, 0, -0.052336, 0.998629, 0, 0, 0, 1, -0.5, 1, 0)
+transform = Transform3D(0.99863, 0.052336, 0, -0.052336, 0.99863, 0, 0, 0, 1, -0.5, 1, 0)
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.7, 0)
@@ -1190,7 +1257,7 @@ bones/5/name = "LArm"
 bones/5/parent = 4
 bones/5/rest = Transform3D(1, 2.26184e-07, 1.63024e-07, -2.26184e-07, 0.316228, 0.948683, 1.63024e-07, -0.948683, 0.316228, 2.13163e-14, 1.26491, 5.96046e-08)
 bones/5/enabled = true
-bones/5/position = Vector3(0.455, 1.395, -0.93)
+bones/5/position = Vector3(2.13163e-14, 1.26491, 5.96046e-08)
 bones/5/rotation = Quaternion(-0.584958, 7.10543e-15, 1.42296e-14, 0.811064)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "LArm_end"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://chsbm57diko1e"]
+[gd_scene load_steps=17 format=4 uid="uid://chsbm57diko1e"]
 
 [ext_resource type="PackedScene" uid="uid://b37yxgwl3lhrf" path="res://demo/3d/godot_player.tscn" id="1_q8g6d"]
 [ext_resource type="Script" uid="uid://cxfb8caqkual4" path="res://demo/3d/animation.gd" id="1_skd7q"]
@@ -130,7 +130,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 1.5708, 0)]
+"values": [Vector3(0, -1.5708, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -271,6 +271,33 @@ tracks/2/keys = {
 "values": [Vector3(1, 1, 1), Vector3(2, 2, 2)]
 }
 
+[sub_resource type="Animation" id="Animation_i6oxv"]
+resource_name = "Wide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GodotPlayer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-12, 0, -12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GodotPlayer:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jlqa6"]
 _data = {
 &"MovePlayer": SubResource("Animation_5cyce"),
@@ -279,7 +306,8 @@ _data = {
 &"Rotating": SubResource("Animation_ob7ly"),
 &"RotatingLow": SubResource("Animation_x2gb7"),
 &"Sliding": SubResource("Animation_3ycvo"),
-&"Staring": SubResource("Animation_7s8qn")
+&"Staring": SubResource("Animation_7s8qn"),
+&"Wide": SubResource("Animation_i6oxv")
 }
 
 [node name="Animation" type="Node3D"]
@@ -293,17 +321,8 @@ shadow_enabled = true
 environment = SubResource("Environment_5cyce")
 
 [node name="GodotPlayer" parent="." instance=ExtResource("1_q8g6d")]
-transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 skin = ExtResource("3_5cyce")
-
-[node name="cape" parent="GodotPlayer" index="0"]
-transform = Transform3D(0.998629, 0.052336, 0, -0.052336, 0.998629, 0, 0, 0, 1, -0.5, 1, 0)
-
-[node name="Skeleton3D" parent="GodotPlayer/Armature" index="0"]
-bones/5/rotation = Quaternion(-0.584958, 7.10543e-15, 1.42296e-14, 0.811064)
-bones/8/rotation = Quaternion(0.584958, 7.10543e-15, -1.42309e-14, 0.811064)
-bones/11/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
-bones/14/rotation = Quaternion(0.707107, 3.55271e-15, -3.55271e-15, 0.707107)
 
 [node name="Body" parent="GodotPlayer/Armature/Skeleton3D/Slim" index="0"]
 mesh = SubResource("ArrayMesh_7s8qn")

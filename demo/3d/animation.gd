@@ -17,7 +17,8 @@ var animations: Array[Callable] = [
 	jojo_pose,
 	jotaro_pose,
 	dog_pose,
-	dog_pose2
+	dog_pose2,
+	wide
 ]
 
 func _ready() -> void:
@@ -25,6 +26,12 @@ func _ready() -> void:
 	animation_player.speed_scale = 1.0
 	select_skin()
 	select_animation()
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.keycode == KEY_F5 and event.pressed:
+			select_skin()
+			select_animation()
 
 
 func select_skin():
@@ -86,3 +93,7 @@ func dog_pose():
 func dog_pose2():
 	animation_player.play("Rotating")
 	godot_player.player_animations.play("Dog")
+
+func wide():
+	animation_player.play("Wide")
+	godot_player.player_animations.play("Wide")
