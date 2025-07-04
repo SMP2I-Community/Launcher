@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nqtsrakswatw"
-path="res://.godot/imported/stevex.png-cc44c2f3da411643ad861f7d6f2c353a.ctex"
+uid="uid://cewqvgtklmlva"
+path="res://.godot/imported/alex.png-3edd8f1f153ad4dbe2b4befe6d430127.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://demo/assets/textures/stevex.png"
-dest_files=["res://.godot/imported/stevex.png-cc44c2f3da411643ad861f7d6f2c353a.ctex"]
+source_file="res://demo/assets/textures/skins/alex.png"
+dest_files=["res://.godot/imported/alex.png-3edd8f1f153ad4dbe2b4befe6d430127.ctex"]
 
 [params]
 

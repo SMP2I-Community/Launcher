@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvd3mtqspt7rg"
-path="res://.godot/imported/steve.png-3913cb2f1460d25997d5fce19f2ecf98.ctex"
+uid="uid://nqtsrakswatw"
+path="res://.godot/imported/stevex.png-8faab33df6b647fa5f8b46378bc544fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://demo/assets/textures/steve.png"
-dest_files=["res://.godot/imported/steve.png-3913cb2f1460d25997d5fce19f2ecf98.ctex"]
+source_file="res://demo/assets/textures/skins/stevex.png"
+dest_files=["res://.godot/imported/stevex.png-8faab33df6b647fa5f8b46378bc544fa.ctex"]
 
 [params]
 

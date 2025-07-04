@@ -63,7 +63,8 @@ func install(asset_index: AssetIndex):
 	for i in range(threaders.size()):
 		var threader: Threader = threaders[i]
 		var assets_data: Array = threaders_assets[i]
-		threader.start(_threader_callable.bind(threader, assets_data, assets_folder))
+		threader.start.call_deferred(_threader_callable.bind(threader, assets_data, assets_folder))
+		await get_tree().create_timer(0.1).timeout
 		print("threader %s starting" % i)
 
 func partition(values: Array, amount: int) -> Array[Array]:

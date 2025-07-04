@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8c72eb1v6ne7"
-path="res://.godot/imported/alen.png-5a8f925e6714f56e1ae4fbd0f389bc6c.ctex"
+uid="uid://c8jtsdh1pt1d4"
+path="res://.godot/imported/jonathan.png-9326880ef3bf37a9fb1151decb9ef073.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://demo/assets/textures/alen.png"
-dest_files=["res://.godot/imported/alen.png-5a8f925e6714f56e1ae4fbd0f389bc6c.ctex"]
+source_file="res://demo/assets/textures/skins/jonathan.png"
+dest_files=["res://.godot/imported/jonathan.png-9326880ef3bf37a9fb1151decb9ef073.ctex"]
 
 [params]
 

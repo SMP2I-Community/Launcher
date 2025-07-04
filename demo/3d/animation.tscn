@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b37yxgwl3lhrf" path="res://demo/3d/godot_player.tscn" id="1_q8g6d"]
 [ext_resource type="Script" uid="uid://cxfb8caqkual4" path="res://demo/3d/animation.gd" id="1_skd7q"]
-[ext_resource type="Texture2D" uid="uid://bvd3mtqspt7rg" path="res://demo/assets/textures/steve.png" id="3_5cyce"]
+[ext_resource type="Texture2D" uid="uid://bvd3mtqspt7rg" path="res://demo/assets/textures/skins/steve.png" id="3_5cyce"]
 [ext_resource type="Material" uid="uid://bdrh2jj7c4oc3" path="res://demo/assets/materials/player_godot.tres" id="4_jlqa6"]
 
 [sub_resource type="Environment" id="Environment_5cyce"]

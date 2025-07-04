@@ -25,6 +25,9 @@ func download(asset: Asset, callback: Callable) -> void:
 			push_error("Error %s while downloading %s" % [results[0], asset.get_url()])
 		else:
 			print("%s - Asset downloaded at %s" % [name, asset.get_download_file()])
+	else:
+		# A little wait else the launcher will freeze
+		await get_tree().create_timer(0.01).timeout
 	
 	downloaded += 1
 	

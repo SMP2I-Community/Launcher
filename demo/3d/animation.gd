@@ -1,5 +1,8 @@
 extends Node3D
 
+const JOTARO_SKIN = preload("res://demo/assets/textures/skins/jotaro.png")
+const JONATHAN_SKIN = preload("res://demo/assets/textures/skins/jonathan.png")
+
 @export var skins: Array[Texture2D] = []
 
 @onready var godot_player: GodotPlayer = $GodotPlayer
@@ -62,11 +65,13 @@ func jojo_pose():
 	animation_player.play("Rotating")
 	animation_player.speed_scale = 0.01
 	godot_player.player_animations.play("JojoPose")
+	godot_player.skin = JONATHAN_SKIN
 
 func jotaro_pose():
 	animation_player.play("Rotating")
 	animation_player.speed_scale = 0.01
 	godot_player.player_animations.play("JotaroPose")
+	godot_player.skin = JOTARO_SKIN
 
 # BAD
 #func joseph_pose():

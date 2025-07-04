@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cewqvgtklmlva"
-path="res://.godot/imported/alex.png-6e48494ff6dce77ae37d0599c655e869.ctex"
+uid="uid://c8c72eb1v6ne7"
+path="res://.godot/imported/alen.png-e9b4a10a22d12813d8b7d5a7486ed5ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://demo/assets/textures/alex.png"
-dest_files=["res://.godot/imported/alex.png-6e48494ff6dce77ae37d0599c655e869.ctex"]
+source_file="res://demo/assets/textures/skins/alen.png"
+dest_files=["res://.godot/imported/alen.png-e9b4a10a22d12813d8b7d5a7486ed5ff.ctex"]
 
 [params]
 
