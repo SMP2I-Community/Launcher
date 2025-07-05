@@ -48,18 +48,6 @@ func install(asset_index: AssetIndex):
 	
 	var threaders_assets = partition(objects.values(), threaders.size())
 	
-	#print(partition([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ,21 ,22, 23, 24], 12))
-	
-	#var current_threader_idx := 0
-	#for asset_path: String in objects:
-		#var threader := threaders[current_threader_idx]
-		#var asset_data = objects[asset_path]
-		#
-		#var asset := Asset.new(asset_data, assets_folder)
-		#threader.add_child(asset)
-		#
-		#current_threader_idx = (current_threader_idx + 1) % threaders.size()
-	#
 	for i in range(threaders.size()):
 		var threader: Threader = threaders[i]
 		var assets_data: Array = threaders_assets[i]
@@ -88,19 +76,6 @@ func _threader_callable(threader: Threader, assets_data: Array, assets_folder: S
 	var asset = Asset.new(asset_data, assets_folder)
 	threader.download.call_deferred(asset, _threader_callable.bind(threader, assets_data, assets_folder))
 
-
-func _asset_callback(threader: Threader, asset: Asset, assets: Array):
-	if asset != null:
-		threader.remove_child.call_deferred(asset)
-		asset.queue_free.call_deferred()
-		
-	var next_asset: Asset = assets.pop_front()
-	if next_asset == null:
-		print_debug("All assets of %s have been downloaded" % threader.name)
-		threader.finished.emit()
-		return
-	
-	next_asset.download.call_deferred(_asset_callback.bind(threader, next_asset, assets))
 
 func get_assets_downloaded() -> int:
 	var assets_pending := 0

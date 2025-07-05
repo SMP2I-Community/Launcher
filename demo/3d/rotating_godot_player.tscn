@@ -54,7 +54,7 @@ rotation_speed = 0.002
 hide_cape_if_empty = false
 
 [node name="cape" parent="." index="0"]
-transform = Transform3D(0.998629, 0.052336, 0, -0.052336, 0.998629, 0, 0, 0, 1, -0.5, 1, 0)
+transform = Transform3D(0.99863, 0.052336, 0, -0.052336, 0.99863, 0, 0, 0, 1, -0.5, 1, 0)
 
 [node name="CapeCollision" type="StaticBody3D" parent="cape" index="1"]
 
@@ -83,7 +83,7 @@ speed_scale = 0.4
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Anchor" index="0"]
-transform = Transform3D(0.707107, -0.247634, 0.662327, 0, 0.936672, 0.350207, -0.707107, -0.247634, 0.662327, 4, 1.6, 4)
+transform = Transform3D(0.707107, -0.206738, 0.676209, 0, 0.956305, 0.292372, -0.707107, -0.206738, 0.676209, 4, 1.6, 4)
 projection = 1
 size = 8.0
 

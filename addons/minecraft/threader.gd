@@ -13,18 +13,22 @@ func _ready() -> void:
 	http_request = HTTPRequest.new()
 	add_child(http_request)
 
-func download(asset: Asset, callback: Callable) -> void:
-	DirAccess.make_dir_recursive_absolute(asset.get_download_file().get_base_dir())
-	if not FileAccess.file_exists(asset.get_download_file()):
-		http_request.download_file = asset.get_download_file()
-		http_request.request(asset.get_url())
+func download(downloadable: ThreaderDownloadable, callback: Callable) -> void:
+	if downloadable.get_download_file().is_empty() or downloadable.get_url().is_empty():
+		push_error("Missing parameter for %s" % downloadable)
+		return
+	
+	DirAccess.make_dir_recursive_absolute(downloadable.get_download_file().get_base_dir())
+	if not FileAccess.file_exists(downloadable.get_download_file()):
+		http_request.download_file = downloadable.get_download_file()
+		http_request.request(downloadable.get_url())
 		
 		var results = await http_request.request_completed
 		
 		if results[0] != HTTPRequest.RESULT_SUCCESS:
-			push_error("Error %s while downloading %s" % [results[0], asset.get_url()])
+			push_error("Error %s while downloading %s" % [results[0], downloadable.get_url()])
 		else:
-			print("%s - Asset downloaded at %s" % [name, asset.get_download_file()])
+			print("%s - %s downloaded at %s" % [name, downloadable.get_url(), downloadable.get_download_file()])
 	else:
 		# A little wait else the launcher will freeze
 		await get_tree().create_timer(0.01).timeout

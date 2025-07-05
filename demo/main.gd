@@ -17,9 +17,6 @@ var cape_mat: StandardMaterial3D = preload("res://demo/assets/materials/cape.tre
 @onready var player_name_line_edit: LineEdit = %PlayerNameLineEdit
 @onready var player_name_animation_player: AnimationPlayer = %PlayerNameAnimationPlayer
 
-@onready var skin_download_timer: Timer = $SkinDownloadTimer
-@onready var requests: Requests = $Requests
-
 @onready var player_viewport_container: SubViewportContainer = %PlayerViewportContainer
 
 @onready var play_button: Button = %PlayButton

@@ -10,12 +10,14 @@ const MINECRAFT_UUID = "https://api.mojang.com/users/profiles/minecraft/%s"
 const MINECRAFT_PROFILE = "https://sessionserver.mojang.com/session/minecraft/profile/%s"
 const UNKOWN_SKIN = preload("res://demo/assets/textures/skins/unkown.png")
 
+const SKIN_DOWNLOAD_WAIT_TIME: float = 2.5
+
 @export var minecraft_folder: String = "user://"
 
 var profile: MCProfile = MCProfile.load_profile(minecraft_folder)
 
-@onready var downloader: Requests = $Requests
-@onready var skin_download_timer: Timer = $SkinDownloadTimer
+@onready var downloader: Requests = Requests.new()
+@onready var skin_download_timer: Timer = Timer.new()
 
 @onready var skin_github_files: GithubFiles = $SkinGithubFiles
 var skin_sha: String
@@ -23,6 +25,18 @@ var is_mojang_skin: bool = false
 
 @onready var capes_github_files: GithubFiles = $CapesGithubFiles
 var cape_sha: String
+
+func _ready() -> void:
+	_init_requests()
+	_init_skin_download_timer(SKIN_DOWNLOAD_WAIT_TIME)
+
+func _init_requests():
+	add_child(downloader)
+
+func _init_skin_download_timer(wait_time: float = 1.0):
+	add_child(skin_download_timer)
+	skin_download_timer.one_shot = true
+	skin_download_timer.timeout.connect(_on_skin_download_timer_timeout)
 
 func set_player_name(value: String):
 	profile.player_name = value if value.replace(" ", "") != "" else "Player"
@@ -149,7 +163,8 @@ func _send_cape(player_name: String):
 
 
 func _on_skin_download_timer_timeout() -> void:
-	await download_minecraft_skin()
+	await download_skin()
+	await download_cape()
 	skin_updated.emit()
 
 

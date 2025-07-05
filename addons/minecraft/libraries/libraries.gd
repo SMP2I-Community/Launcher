@@ -22,24 +22,25 @@ func install(libraries_list: Array):
 	install_natives()
 
 func install_libraries():
-	for lib: Library in libraries:
-		var artifact: Artifact = lib.as_artifact()
-		if artifact == null:
-			continue
-		
-		artifact_threader.add_child(artifact)
-	
-	var artifacts: Array = artifact_threader.get_children()
-	artifacts_number = artifacts.size()
-	artifact_threader.start(_download_artifacts.bind(artifact_threader, artifacts))
+	artifact_threader.start(_download_libraries.bind(artifact_threader, libraries, libraries_folder))
 
 func install_natives():
 	for lib: Library in libraries:
 		#print(lib.as_native())
 		pass
 
-func _download_artifacts(threader: Threader, artifacts: Array):
-	_artifact_callback(threader, null, artifacts)
+func _download_libraries(threader: Threader, libraries: Array[Library], libraries_folder: String):
+	var artifact: Artifact
+	while artifact == null:
+		var lib: Library = libraries.pop_front()
+		if lib == null:
+			print_debug("All artifacts of %s have been downloaded" % threader.name)
+			threader.finished.emit()
+			return
+		
+		artifact = lib.as_artifact()
+	
+	threader.download.call_deferred(artifact, _download_libraries.bind(threader, libraries, libraries_folder))
 
 func _artifact_callback(threader: Threader, artifact: Artifact, artifacts: Array):
 	if artifact != null:

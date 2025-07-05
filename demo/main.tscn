@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bnvlws7lnrdw"]
+[gd_scene load_steps=25 format=3 uid="uid://bnvlws7lnrdw"]
 
 [ext_resource type="Theme" uid="uid://dmajl82kqvoml" path="res://demo/assets/themes/main_theme.tres" id="1_3r4ql"]
 [ext_resource type="Script" uid="uid://bv83qgwbfu3rg" path="res://demo/main.gd" id="2_3qh5v"]
@@ -16,7 +16,6 @@
 [ext_resource type="Script" uid="uid://dacbrmphtmv1y" path="res://demo/menus/custom_nodes/rotating_labek.gd" id="21_mjx5a"]
 [ext_resource type="Script" uid="uid://2woelyueautw" path="res://demo/player_name_line_edit.gd" id="22_kkmuq"]
 [ext_resource type="Texture2D" uid="uid://bccwy8opb2gkd" path="res://demo/assets/textures/NodeWarning.svg" id="23_mrq1a"]
-[ext_resource type="Script" uid="uid://bnmyahdqpjit4" path="res://addons/easy_requests/requests.gd" id="24_cw4ra"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cpkci"]
 font = ExtResource("20_oxxlq")
@@ -289,15 +288,6 @@ libraries = {
 }
 autoplay = "Show"
 
-[node name="SkinDownloadTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="Requests" type="Node" parent="."]
-process_thread_group = 2
-process_thread_group_order = 0
-process_thread_messages = 0
-script = ExtResource("24_cw4ra")
-
 [node name="QuitTimer" type="Timer" parent="."]
 wait_time = 15.0
 
@@ -331,5 +321,4 @@ skins = Array[Texture2D]([ExtResource("14_f8mb2"), ExtResource("15_ykfgg"), ExtR
 [connection signal="text_changed" from="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/PlayContainer/Control/VBoxContainer/PlayerNameLineEdit" to="." method="_on_player_name_line_edit_text_changed"]
 [connection signal="text_changed" from="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/PlayContainer/Control/VBoxContainer/PlayerNameLineEdit" to="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/PlayContainer/Control/VBoxContainer/PlayerNameLineEdit" method="_on_text_changed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/PanelContainer/HBoxContainer/PlayContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="timeout" from="SkinDownloadTimer" to="." method="_on_skin_download_timer_timeout"]
 [connection signal="timeout" from="QuitTimer" to="." method="_on_quit_timer_timeout"]
