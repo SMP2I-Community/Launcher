@@ -77,7 +77,10 @@ func _on_skin_file_dialog_file_selected(path: String) -> void:
 
 
 func _on_quit_timer_timeout() -> void:
-	if not "--noquit" in OS.get_cmdline_args():
+	if "--noquit" in OS.get_cmdline_args():
+		play_button.disabled = false
+		progress_bar.hide()
+	else:
 		get_tree().quit()
 
 

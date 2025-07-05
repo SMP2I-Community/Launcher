@@ -381,7 +381,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"ProgressBarRight"
-max_value = 4153.0
+max_value = 4150.0
 step = 1.0
 value = 1500.0
 
