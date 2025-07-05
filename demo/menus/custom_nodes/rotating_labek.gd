@@ -5,6 +5,6 @@ class_name RotatingLabel
 
 @onready var base_text = text
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	text = base_text % args
 	pivot_offset = size / 2

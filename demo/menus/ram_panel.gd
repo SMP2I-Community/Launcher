@@ -10,10 +10,10 @@ func _ready() -> void:
 	ram_slider.max_value = int(cool_number)
 	ram_slider.value = Config.max_ram
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	rotating_label.args[0] = int(ram_slider.value)
 
 
 func _on_ram_slider_drag_ended(value_changed: bool) -> void:
 	if value_changed:
-		Config.max_ram = ram_slider.value
+		Config.max_ram = int(ram_slider.value)
