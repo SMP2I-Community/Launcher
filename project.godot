@@ -41,6 +41,10 @@ file_logging/enable_file_logging.pc=false
 
 window/subwindows/embed_subwindows=false
 
+[editor]
+
+run/main_run_args="--noquit"
+
 [editor_plugins]
 
 enabled=PackedStringArray()

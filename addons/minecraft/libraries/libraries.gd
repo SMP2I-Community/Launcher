@@ -59,7 +59,7 @@ func _artifact_callback(threader: Threader, artifact: Artifact, artifacts: Array
 	next_artifact.download.call_deferred(_artifact_callback.bind(threader, next_artifact, artifacts))
 
 func get_progress() -> int:
-	return artifacts_number - artifact_threader.get_child_count()
+	return artifact_threader.get_progress()
 
 
 func _on_artifact_threader_finished() -> void:

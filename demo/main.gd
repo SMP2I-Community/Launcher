@@ -53,7 +53,7 @@ func _on_play_button_pressed() -> void:
 	minecraft.run()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	progress_bar.value = minecraft.get_progress()
 
 
@@ -77,7 +77,8 @@ func _on_skin_file_dialog_file_selected(path: String) -> void:
 
 
 func _on_quit_timer_timeout() -> void:
-	get_tree().quit()
+	if not "--noquit" in OS.get_cmdline_args():
+		get_tree().quit()
 
 
 func _on_minecraft_on_minecraft_run() -> void:

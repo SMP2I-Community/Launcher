@@ -35,6 +35,7 @@ func _init_requests():
 
 func _init_skin_download_timer(wait_time: float = 1.0):
 	add_child(skin_download_timer)
+	skin_download_timer.wait_time = wait_time
 	skin_download_timer.one_shot = true
 	skin_download_timer.timeout.connect(_on_skin_download_timer_timeout)
 
