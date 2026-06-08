@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="AeroLauncher"
+run/main_scene="uid://bw4xgh2kygkf8"
+config/features=PackedStringArray("4.6", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+HTTPClientPool="*uid://bxcekpychos4t"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/logger/plugin.cfg", "res://addons/mc_launcher_kit/plugin.cfg")
+
+[network]
+
+limits/debugger/max_chars_per_second=1048576
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="mobile"

@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bw4xgh2kygkf8"]
+
+[ext_resource type="Script" uid="uid://geacibhsuuyg" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://c7gtgrqk6u08j" path="res://addons/mc_launcher_kit/core/launcher/profile_launcher.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://dnbswfleywdey" path="res://addons/mc_launcher_kit/core/auth/offline_authenticator.gd" id="3_7mycd"]
+[ext_resource type="Script" uid="uid://dqlyewhscq6fk" path="res://addons/mc_launcher_kit/profile/mc_profile.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://dw83wjynccwv7" path="res://addons/mc_launcher_kit/modloaders/neoforge_loader.gd" id="3_lquwl"]
+[ext_resource type="Script" uid="uid://cacwaeb4so2yd" path="res://addons/mc_launcher_kit/core/mc_version.gd" id="4_1bvp3"]
+
+[sub_resource type="Resource" id="Resource_272bh"]
+script = ExtResource("3_7mycd")
+metadata/_custom_type_script = "uid://dnbswfleywdey"
+
+[sub_resource type="Resource" id="Resource_7mycd"]
+script = ExtResource("3_lquwl")
+version = "21.1.233"
+sha1 = "c08d30647f1dc8650bc098b03b5faacdb63d1cf4"
+metadata/_custom_type_script = "uid://dw83wjynccwv7"
+
+[sub_resource type="Resource" id="Resource_lquwl"]
+script = ExtResource("4_1bvp3")
+id = "1.21.1"
+time = "2026-06-04T06:30:14+00:00"
+release_time = "2024-08-08T12:24:45+00:00"
+url = "https://piston-meta.mojang.com/v1/packages/52322fc198d984ec9c2e464a371221d038ea1fc5/1.21.1.json"
+sha1 = "52322fc198d984ec9c2e464a371221d038ea1fc5"
+compliance_level = 1
+metadata/_custom_type_script = "uid://cacwaeb4so2yd"
+
+[sub_resource type="Resource" id="Resource_1bvp3"]
+script = ExtResource("3_h2yge")
+name = "Aero"
+version = SubResource("Resource_lquwl")
+modloader = SubResource("Resource_7mycd")
+authenticator = SubResource("Resource_272bh")
+metadata/_custom_type_script = "uid://dqlyewhscq6fk"
+
+[node name="Main" type="Control" unique_id=1303654511]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0xm2m")
+
+[node name="MCProfileLauncher" type="Node" parent="." unique_id=2129745960]
+script = ExtResource("2_0xm2m")
+profile = SubResource("Resource_1bvp3")
+metadata/_custom_type_script = "uid://c7gtgrqk6u08j"
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=244287670]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2

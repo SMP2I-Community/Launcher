@@ -1,3 +1,6 @@
 [submodule "addons/mc_launcher_kit"]
 	path = addons/mc_launcher_kit
 	url = git@github.com:Dams4K/MCLauncherKit.git
+[submodule "addons/logger"]
+	path = addons/logger
+	url = git@github.com:Dams4K/SimpleLogger.git
