@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="AeroLauncher"
+config/name="SMP2I Launcher"
 run/main_scene="uid://bw4xgh2kygkf8"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 [autoload]
 
 HTTPClientPool="*uid://bxcekpychos4t"
+
+[debug]
+
+file_logging/log_path="user://logs/smp2i.log"
 
 [editor_plugins]
 
