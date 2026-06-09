@@ -13,4 +13,5 @@ func _ready() -> void:
 			progress_bar.value = HTTPClientPool.total_downloaded
 	)
 	
-	mc_launcher.install()
+	await mc_launcher.install()
+	mc_launcher.launch()
