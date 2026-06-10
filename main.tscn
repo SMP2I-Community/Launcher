@@ -88,7 +88,6 @@ profile = SubResource("Resource_1bvp3")
 metadata/_custom_type_script = "uid://c7gtgrqk6u08j"
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=244287670]
-visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
