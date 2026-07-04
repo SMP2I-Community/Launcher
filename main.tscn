@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://geacibhsuuyg" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://c7gtgrqk6u08j" path="res://addons/mc_launcher_kit/core/launcher/profile_launcher.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://c8cjcexgluajp" path="res://addons/mc_launcher_kit/core/launcher/launcher.gd" id="2_5vw27"]
 [ext_resource type="Script" uid="uid://dnbswfleywdey" path="res://addons/mc_launcher_kit/core/auth/offline_authenticator.gd" id="3_7mycd"]
 [ext_resource type="Script" uid="uid://dqlyewhscq6fk" path="res://addons/mc_launcher_kit/profile/mc_profile.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://dw83wjynccwv7" path="res://addons/mc_launcher_kit/modloaders/neoforge_loader.gd" id="3_lquwl"]
@@ -82,6 +83,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0xm2m")
 
+[node name="MCLauncher" type="Node" parent="." unique_id=606581893]
+script = ExtResource("2_5vw27")
+metadata/_custom_type_script = "uid://c8cjcexgluajp"
+
 [node name="MCProfileLauncher" type="Node" parent="." unique_id=2129745960]
 script = ExtResource("2_0xm2m")
 profile = SubResource("Resource_1bvp3")
@@ -101,3 +106,25 @@ autoplay = &"Loop"
 [node name="Icon" type="Sprite2D" parent="." unique_id=273257242]
 position = Vector2(185, 127)
 texture = ExtResource("7_272bh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1990676220]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VersionOptionButton" type="OptionButton" parent="HBoxContainer" unique_id=1153238649]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LaunchButton" type="Button" parent="HBoxContainer" unique_id=1272888877]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+text = "Launch"
+
+[connection signal="pressed" from="HBoxContainer/LaunchButton" to="." method="_on_launch_button_pressed"]

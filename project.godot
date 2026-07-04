@@ -12,7 +12,7 @@ config_version=5
 
 config/name="SMP2I Launcher"
 run/main_scene="uid://bw4xgh2kygkf8"
-config/features=PackedStringArray("4.6", "Mobile")
+config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -26,6 +26,10 @@ file_logging/log_path="user://logs/smp2i.log"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/logger/plugin.cfg", "res://addons/mc_launcher_kit/plugin.cfg")
+
+[mc_launcher_kit]
+
+web/pool_size=8
 
 [network]
 
