@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-HTTPClientPool="*uid://bxcekpychos4t"
+HTTPClientPool="*uid://cla11lpcjkgk6"
 
 [debug]
 
@@ -26,10 +26,6 @@ file_logging/log_path="user://logs/smp2i.log"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/logger/plugin.cfg", "res://addons/mc_launcher_kit/plugin.cfg")
-
-[mc_launcher_kit]
-
-web/pool_size=8
 
 [network]
 
