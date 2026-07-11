@@ -16,6 +16,9 @@ _data = {
 &"RESET": SubResource("Animation_5vw27")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_psj2o"]
+font_size = 43
+
 [node name="Main" type="Control" unique_id=1303654511]
 layout_mode = 3
 anchors_preset = 15
@@ -127,6 +130,26 @@ offset_right = 20.0
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=2005996957]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 110.0
+offset_right = 48.0
+offset_bottom = 133.0
+text = "SKrrr Skrr PATAPIM SKRRR"
+
+[node name="Label2" type="Label" parent="." unique_id=668828960]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 338.0
+offset_right = 682.0
+offset_bottom = 583.0
+text = "No ketchup (None)
+Just sauce (Saucy)
+Raw sauce (Ah)
+Yo, boom, ah"
+label_settings = SubResource("LabelSettings_psj2o")
 
 [connection signal="pressed" from="HBoxContainer/LaunchButton" to="." method="_on_launch_button_pressed"]
 [connection signal="value_changed" from="RamContainer/RamSlider" to="." method="_on_ram_slider_value_changed"]
