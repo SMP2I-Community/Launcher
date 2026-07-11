@@ -98,7 +98,6 @@ max_value = 16.0
 value = 4.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=136458028]
-visible = false
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0

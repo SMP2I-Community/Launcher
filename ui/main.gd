@@ -23,6 +23,7 @@ func _ready() -> void:
 	if err == OK:
 		username_line_edit.text = config.get_value("settings", "name", "")
 		ram_slider.value = config.get_value("settings", "ram", 4)
+		
 	
 	_on_ram_slider_value_changed(ram_slider.value)
 	modpack_versions = DownloadTask.new()
@@ -38,7 +39,8 @@ func _on_versions_task_completed(response: TaskResponse) -> void:
 	for i in range(modpacks.size()):
 		var modpack_info: Dictionary = modpacks[i]
 		version_option_button.add_item(modpack_info.name, i)
-	version_option_button.select(0)
+		
+	version_option_button.select(config.get_value("settings", "modpack", 0))
 	_setup_progress_bar()
 
 func _setup_progress_bar() -> void:
@@ -60,13 +62,15 @@ func _on_launch_button_pressed() -> void:
 	var player_name = username_line_edit.text
 	var ram_amount = int(ram_slider.value)
 	
-	config.set_value("settings", "name", player_name)
-	config.set_value("settings", "ram", ram_amount)
-	config.save(CONFIG_PATH)
-	
 	var idx: int = version_option_button.selected
 	if idx < 0: return
 	var modpack = modpacks[idx]
+	
+	config.set_value("settings", "name", player_name)
+	config.set_value("settings", "ram", ram_amount)
+	config.set_value("settings", "modpack", idx)
+	config.save(CONFIG_PATH)
+	
 	
 	var profile := MCProfile.new()
 	profile.name = modpack.name
