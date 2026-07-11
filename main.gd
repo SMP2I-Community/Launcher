@@ -118,7 +118,7 @@ func update_modpack_installation(profile: MCProfile, previous_data: Dictionary, 
 	var files_to_remove: Array[String] = []
 	
 	for file_rel_path: String in previous_data:
-		var file_info: Dictionary = new_data[file_rel_path]
+		var file_info: Dictionary = previous_data[file_rel_path]
 		var file_sha1 = file_info.sha1
 		if file_rel_path in new_data:
 			if new_data[file_rel_path].sha1 == file_sha1:
@@ -139,7 +139,7 @@ func update_modpack_installation(profile: MCProfile, previous_data: Dictionary, 
 	if new_data.is_empty():
 		Log.info("Nothing to update")
 	else:
-		Log.debug("Data to install: {}".format(new_data))
+		Log.debug("Data to install: %s" % str(new_data))
 	
 	for file_rel_path: String in new_data:
 		Log.debug(file_rel_path)
