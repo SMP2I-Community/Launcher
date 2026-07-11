@@ -27,6 +27,10 @@ file_logging/log_path="user://logs/smp2i.log"
 
 enabled=PackedStringArray("res://addons/logger/plugin.cfg", "res://addons/mc_launcher_kit/plugin.cfg")
 
+[mc_launcher_kit]
+
+web/pool_size=8
+
 [network]
 
 limits/debugger/max_chars_per_second=1048576
