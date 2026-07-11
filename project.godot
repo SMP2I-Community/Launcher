@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="SMP2I Launcher"
-run/main_scene="uid://bw4xgh2kygkf8"
+run/main_scene="uid://hivflrifo20s"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 HTTPClientPool="*uid://cla11lpcjkgk6"
+SceneLoader="*uid://bfgf7naec2opm"
+LoadingScreen="*uid://b60qjr3pat51x"
 
 [debug]
 
@@ -25,11 +27,7 @@ file_logging/log_path="user://logs/smp2i.log"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/logger/plugin.cfg", "res://addons/mc_launcher_kit/plugin.cfg")
-
-[mc_launcher_kit]
-
-web/pool_size=8
+enabled=PackedStringArray("res://addons/logger/plugin.cfg", "res://addons/mc_launcher_kit/plugin.cfg", "res://addons/scene_loader/plugin.cfg")
 
 [network]
 

@@ -1,1 +1,120 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128"><rect width="124" height="124" x="2" y="2" fill="#363d52" stroke="#212532" stroke-width="4" rx="14"/><g fill="#fff" transform="translate(12.322 12.322)scale(.101)"><path d="M105 673v33q407 354 814 0v-33z"/><path fill="#478cbf" d="m105 673 152 14q12 1 15 14l4 67 132 10 8-61q2-11 15-15h162q13 4 15 15l8 61 132-10 4-67q3-13 15-14l152-14V427q30-39 56-81-35-59-83-108-43 20-82 47-40-37-88-64 7-51 8-102-59-28-123-42-26 43-46 89-49-7-98 0-20-46-46-89-64 14-123 42 1 51 8 102-48 27-88 64-39-27-82-47-48 49-83 108 26 42 56 81zm0 33v39c0 276 813 276 814 0v-39l-134 12-5 69q-2 10-14 13l-162 11q-12 0-16-11l-10-65H446l-10 65q-4 11-16 11l-162-11q-12-3-14-13l-5-69z"/><path d="M483 600c0 34 58 34 58 0v-86c0-34-58-34-58 0z"/><circle cx="725" cy="526" r="90"/><circle cx="299" cy="526" r="90"/></g><g fill="#414042" transform="translate(12.322 12.322)scale(.101)"><circle cx="307" cy="532" r="60"/><circle cx="717" cy="532" r="60"/></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   sodipodi:docname="icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#000000"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="36.25"
+     inkscape:cx="7.9172414"
+     inkscape:cy="12.110345"
+     inkscape:window-width="2560"
+     inkscape:window-height="1371"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect1"
+       style="display:inline;fill:#f2f2f2"
+       d="M 1 0 C 0.446 0 0 0.446 0 1 L 0 5.5 L 1.5 5.5 L 1.5 4 A 0.50005 0.50005 0 0 1 2 3.5 L 4 3.5 L 8 3.5 A 0.50005 0.50005 0 0 1 8.5 4 L 8.5 5.5 L 9.5 5.5 L 9.5 4 A 0.50005 0.50005 0 0 1 10 3.5 L 12 3.5 L 14 3.5 A 0.50005 0.50005 0 0 1 14.5 4 L 14.5 5.5 L 16 5.5 L 16 1 C 16 0.446 15.554 0 15 0 L 1 0 z M 2.5 4.5 L 2.5 6 A 0.50005 0.50005 0 0 1 2 6.5 L 0 6.5 L 0 15 C 0 15.554 0.446 16 1 16 L 15 16 C 15.554 16 16 15.554 16 15 L 16 6.5 L 14 6.5 A 0.50005 0.50005 0 0 1 13.5 6 L 13.5 4.5 L 12 4.5 L 10.5 4.5 L 10.5 6 A 0.50005 0.50005 0 0 1 10 6.5 L 8 6.5 A 0.50005 0.50005 0 0 1 7.5 6 L 7.5 4.5 L 4 4.5 L 2.5 4.5 z " />
+    <g
+       id="g11"
+       style="display:none">
+      <rect
+         style="fill:#999999"
+         id="rect2"
+         width="2"
+         height="2"
+         x="0"
+         y="0" />
+      <rect
+         style="fill:#999999"
+         id="rect3"
+         width="2"
+         height="2"
+         x="0"
+         y="2" />
+      <rect
+         style="fill:#999999"
+         id="rect4"
+         width="2"
+         height="2"
+         x="2"
+         y="0" />
+      <rect
+         style="fill:#999999"
+         id="rect5"
+         width="2"
+         height="2"
+         x="4"
+         y="2" />
+      <rect
+         style="fill:#999999"
+         id="rect6"
+         width="2"
+         height="2"
+         x="6"
+         y="2" />
+      <rect
+         style="fill:#999999"
+         id="rect7"
+         width="2"
+         height="2"
+         x="8"
+         y="4" />
+      <rect
+         style="fill:#999999"
+         id="rect8"
+         width="2"
+         height="2"
+         x="10"
+         y="2" />
+      <rect
+         style="fill:#999999"
+         id="rect9"
+         width="2"
+         height="2"
+         x="12"
+         y="0" />
+      <rect
+         style="fill:#999999"
+         id="rect10"
+         width="2"
+         height="2"
+         x="14"
+         y="2" />
+      <rect
+         style="display:inline;fill:#999999"
+         id="rect11"
+         width="2"
+         height="2"
+         x="14"
+         y="4" />
+    </g>
+  </g>
+</svg>

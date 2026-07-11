@@ -4,3 +4,6 @@
 [submodule "addons/logger"]
 	path = addons/logger
 	url = git@github.com:Dams4K/SimpleLogger.git
+[submodule "addons/scene_loader"]
+	path = addons/scene_loader
+	url = git@github.com:Dams4K/SceneLoader.git
