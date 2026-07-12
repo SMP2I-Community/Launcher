@@ -114,7 +114,9 @@ func _on_launch_button_pressed() -> void:
 	var files_data = FileAccess.open(old_files_path, FileAccess.WRITE)
 	files_data.store_var(files, false)
 	
-	mc_launcher._launch(profile, profile.authenticator)
+	var code = await mc_launcher._launch(profile, profile.authenticator)
+	await get_tree().create_timer(1).timeout
+	get_tree().quit(code)
 
 func update_modpack_installation(profile: MCProfile, previous_data: Dictionary, new_data: Dictionary):
 	var file_tasks: Array[DownloadTask] = []
