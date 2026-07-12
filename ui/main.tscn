@@ -2,13 +2,38 @@
 
 [ext_resource type="Script" uid="uid://geacibhsuuyg" path="res://ui/main.gd" id="1_loxbi"]
 [ext_resource type="Script" uid="uid://c8cjcexgluajp" path="res://addons/mc_launcher_kit/core/launcher/launcher.gd" id="2_t6oic"]
+[ext_resource type="Texture2D" uid="uid://dhhrkyaydnncr" path="res://icon.png" id="3_loxbi"]
 
 [sub_resource type="Animation" id="Animation_272bh"]
 resource_name = "Loop"
 loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
 
 [sub_resource type="Animation" id="Animation_5vw27"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5vw27"]
 _data = {
@@ -38,6 +63,10 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 27.0
 grow_horizontal = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=975975851]
+position = Vector2(342, 169)
+texture = ExtResource("3_loxbi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1630343189]
 libraries/ = SubResource("AnimationLibrary_5vw27")
@@ -108,12 +137,152 @@ grow_horizontal = 0
 grow_vertical = 2
 horizontal_scroll_mode = 0
 
-[node name="Label" type="Label" parent="ScrollContainer" unique_id=858405011]
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer" unique_id=1000239675]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 6
-text = "Pas de budget pour le launcher la team, désolé. Nan mais j'y peux rien, je m'y suis donner à fond mais vous comprennez, avec le 35h j'ai pas eu beaucoup de temps pour faire quoi que ce soit cette année. Déjà je ne suis pas sur que le launcher va fonctionner pour tout le monde... Alors qu'en vrai j'ai voulu rajouté des trucs cool hein !! Mais bon c'est comme ça, j'y peux pas grand chose moi. Et là je fini bientôt mon stage mais juste après je pars en vacance, donc j'ai vraiment aucun moyen de faire un truc clean. J'ai juste pas eu le temps, m'en voulez pas trop stp. Nan le principal c'est que ça marche hein ? Pas vrai ? Bon aller appui sur le putain de bouton launch, change ta ram aussi, un truc comme 4 c'est vraiment le grand minimum à mettre pour un modpack avec autant de cochonnerie. Nan quand même j'aimerai qu'on discute d'un truc. Comment ça on a besoin d'autant de ram pour quelques mods ??? Attendez regardez Red Dead Redemption 2 : ils disent qu'il faut en gros 8Go, minecraft avec autant de mods, t'es en mode confort avec aller, 12Go. Et ptn la diff de qualité visuel, nan ya un soucis les gars. Et on peut pas juste dire \"c'est que minecraft est mal opti\" nananan là c'est pas minecraft à ce niveau là. Ici c'est juste les moddeurs qui puent la merde. Nan mais faut dire les termes à un moment sérieusement."
-autowrap_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Mes très chers sujets, distingués compagnons d'infortune, nobles héritiers de cette glorieuse entreprise vidéoludique...
+
+Je me vois malheureusement dans l'obligation de vous annoncer une nouvelle qui, je le conçois, pourrait jeter une ombre funeste sur vos cœurs déjà si éprouvés. Il n'y aura point de budget supplémentaire consacré à ce launcher. Oui, je sais. Les murmures de déception parcourent déjà les couloirs du château, les chandeliers vacillent sous le poids de votre désarroi, les domestiques eux-mêmes semblent retenir leurs larmes. Mais hélas... je ne puis rien y changer.
+
+Croyez bien que je me suis investi dans cette œuvre avec une ardeur digne des plus grands bâtisseurs de cathédrales. J'y ai consacré des heures, des jours, des semaines entières, parfois même au détriment de mon sommeil, de ma santé mentale et probablement de quelques années de mon espérance de vie. Seulement, voyez-vous, le destin est un être cruel. Entre ces délicieuses journées de travail limitées aux fameuses trente-cinq heures — car oui, contrairement aux légendes, le temps ne s'étire pas lorsque l'on programme — je n'ai guère trouvé l'occasion de transformer chacune de mes idées délirantes en fonctionnalités bien réelles.
+
+Et pourtant... Ah, si vous saviez tout ce que j'avais imaginé. Des raffinements. Des améliorations. Des petites attentions capables de faire verser une larme d'émotion au plus blasé des utilisateurs. Des animations, des options, des systèmes dont l'utilité était parfois discutable mais dont la classe, elle, ne faisait absolument aucun doute. Hélas, le royaume de la programmation est gouverné par une souveraine impitoyable : la montre. Et cette dernière n'accorde jamais une seconde supplémentaire.
+
+À dire vrai, je ne suis même pas entièrement convaincu que cette merveille technologique fonctionnera parfaitement chez chacun d'entre vous. Oui, voilà, c'est dit. Peut-être que chez certains tout démarrera avec la grâce d'un ballet impérial. Peut-être que chez d'autres tout explosera dans une pluie d'exceptions Java et de messages d'erreur incompréhensibles. Le suspense fait aussi partie du divertissement, après tout.
+
+Comme si cela ne suffisait pas, mon stage touche désormais à sa fin. On pourrait naïvement croire que cela me laisserait enfin du temps libre. Que nenni. Car sitôt cette épreuve terminée, me voilà contraint de partir en vacances. Tragédie absolue. Me voici condamné à contempler des paysages agréables au lieu de corriger des bugs jusqu'à trois heures du matin. Quelle vie injuste.
+
+Vous comprendrez donc qu'il m'est absolument impossible de peaufiner davantage cette création avant votre arrivée. Non pas par manque de volonté, mais simplement parce que les journées refusent obstinément de contenir quarante-huit heures. Je vous implore donc, du plus profond de mon âme, de ne point m'accabler d'une colère excessive si quelque imperfection venait à subsister.
+
+Après tout... le plus important, c'est que ça fonctionne.
+
+Enfin... normalement.
+
+Enfin... suffisamment.
+
+Enfin... on verra bien.
+
+Maintenant, cessons les grandes lamentations. Je vous prie, avec toute la délicatesse dont je suis capable, d'appuyer sur ce foutu bouton **Launch**.
+
+Oui.
+
+Celui-là.
+
+Il ne va pas se cliquer tout seul.
+
+Et pendant que vous y êtes, par pitié, augmentez la mémoire RAM allouée à Minecraft. Quatre gigaoctets constituent véritablement le strict minimum syndical. Le minimum du minimum. Le genre de minimum qu'on annonce avec une voix hésitante en espérant que personne ne prendra ça au sérieux. Si vous disposez de huit, dix ou douze gigaoctets disponibles, soyez généreux. Votre ordinateur ne vous en voudra probablement pas.
+
+Mais cela soulève une interrogation philosophique d'une importance capitale.
+
+Comment diable en sommes-nous arrivés à exiger autant de mémoire vive pour... quelques mods ?
+
+Prenons un instant de recul.
+
+Considérez Red Dead Redemption 2.
+
+Un monde gigantesque.
+
+Des centaines d'animations.
+
+Une qualité graphique qui ferait passer la réalité pour un simple prototype.
+
+Une physique avancée.
+
+Des effets météorologiques.
+
+Une intelligence artificielle crédible.
+
+Des détails absurdes jusque dans la pousse des poils de barbe d'Arthur Morgan.
+
+Le tout recommandé autour de huit gigaoctets de RAM.
+
+Et puis...
+
+Minecraft.
+
+Des cubes.
+
+Encore des cubes.
+
+Toujours des cubes.
+
+Mais avec suffisamment de mods, voilà que cette honorable pile de petits parallélépipèdes décide soudainement qu'elle serait bien plus à l'aise avec douze gigaoctets.
+
+Douze.
+
+Pour des cubes.
+
+Il y a quelque chose qui ne tourne pas rond dans cette histoire.
+
+Et je vous vois déjà arriver avec votre éternel refrain.
+
+« Oui mais Minecraft est mal optimisé. »
+
+Non.
+
+Non.
+
+Et encore non.
+
+À ce niveau-là, ce n'est plus uniquement Minecraft.
+
+Ici, nous sommes entrés dans une dimension parallèle où chaque moddeur semble considérer qu'une boucle infinie exécutée vingt mille fois par tick est une décision d'ingénierie parfaitement acceptable. On dirait que certains développent leurs mods avec une seule règle : « Si ça compile, c'est que c'est probablement optimisé. »
+
+Il faut appeler un chat un chat.
+
+À un moment donné...
+
+Les moddeurs puent la merde.
+
+Voilà.
+
+Les termes sont posés.
+
+Le tribunal est levé.
+
+Bref.
+
+Je m'égare. Une fois encore.
+
+J'espère sincèrement que cette édition sera mémorable. J'espère que vous passerez d'excellents moments, que les serveurs survivront plus de vingt-quatre heures, que personne ne découvrira un moyen inédit de faire exploser l'économie du jeu dès la première soirée, et que les crashs resteront suffisamment rares pour être qualifiés d'événements folkloriques plutôt que de mécanique principale.
+
+Mais surtout...
+
+J'espère de tout cœur que ce launcher ne mourra pas avec cette édition.
+
+Parce que, très franchement, j'y ai investi une quantité de temps absolument indécente. Une quantité de temps que je préfère ne pas calculer afin de préserver ce qu'il me reste de santé mentale. Si, l'année prochaine, quelqu'un décide simplement de le reprendre, de mettre à jour le modpack, de changer quelques images, deux ou trois couleurs, et de continuer à l'utiliser, je serai l'homme le plus heureux du monde.
+
+En revanche...
+
+S'il finit abandonné dans un coin d'un disque dur, oublié comme un vieux projet scolaire qu'on n'ouvrira plus jamais...
+
+Je serai d'une déception si profonde que même les historiens hésiteront à la décrire.
+
+Vous ne réalisez probablement pas tout ce qui se cache derrière ce simple bouton « Launch ». Et c'est tant mieux, d'ailleurs. Parce que lorsqu'un logiciel est agréable à utiliser, c'est précisément qu'on ne remarque pas tout le travail invisible qui permet de le rendre aussi simple.
+
+Rien que le téléchargement automatique de Minecraft est, permettez-moi cette légère absence de modestie, sacrément propre. Il y a derrière tout cela une quantité ridicule de petits détails, de vérifications, de téléchargements, de configurations et de mécanismes qui œuvrent silencieusement pour que vous puissiez simplement cliquer sur un bouton et jouer. C'est précisément le genre de travail dont personne ne parle... parce que lorsqu'il fonctionne, personne ne le remarque.
+
+Et au fond...
+
+Je crois que c'est plutôt bon signe.
+
+Quoi qu'il en soit, j'estime avoir accompli ma part du contrat. Je vous remets aujourd'hui ce launcher avec toute la dignité qu'il mérite. À partir de maintenant, pour ma part, c'est terminé. Je ferme les rideaux. Je vais dormir comme un homme ayant enfin terminé une guerre qui n'intéressait finalement pas grand monde.
+
+Si Léon souhaite mettre le modpack à jour, il pourra le faire très facilement. Vous n'aurez même pas besoin de télécharger une nouvelle version du launcher. Tout se mettra à jour automatiquement, comme par magie, pendant que vous regarderez distraitement une barre de progression avancer lentement en vous demandant pourquoi votre connexion internet choisit toujours cet instant précis pour devenir catastrophique.
+
+Ainsi s'achève mon œuvre.
+
+À présent...
+
+Cliquez sur [b]Launch[/b].
+
+Et que les dieux de Java aient pitié de vos processeurs.
+
+
+- ChatGPT
+"
 
 [node name="ErrorLabel" type="Label" parent="." unique_id=207384718]
 modulate = Color(1, 0, 0, 1)

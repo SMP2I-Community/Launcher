@@ -13,7 +13,8 @@ config_version=5
 config/name="SMP2I Launcher"
 run/main_scene="uid://hivflrifo20s"
 config/features=PackedStringArray("4.7", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://dhhrkyaydnncr"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
@@ -24,6 +25,7 @@ LoadingScreen="*uid://b60qjr3pat51x"
 [debug]
 
 file_logging/log_path="user://logs/smp2i.log"
+file_logging/max_log_files=50
 
 [editor_plugins]
 

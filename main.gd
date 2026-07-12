@@ -8,5 +8,5 @@ func _ready() -> void:
 			"https://raw.githubusercontent.com/SMP2I-Community/LauncherUI/refs/heads/main/ui.pck",
 			"user://ui.pck",
 			"res://ui/main.tscn",
-			"res://ui/main.tscn"
+			"res://ui_default/main.tscn"
 		)
