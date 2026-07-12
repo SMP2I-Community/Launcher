@@ -116,7 +116,6 @@ func _on_launch_button_pressed() -> void:
 	
 	var code = await mc_launcher._launch(profile, profile.authenticator)
 	await get_tree().create_timer(1).timeout
-	Log.info("Quit")
 	get_tree().quit(code)
 
 func update_modpack_installation(profile: MCProfile, previous_data: Dictionary, new_data: Dictionary):
