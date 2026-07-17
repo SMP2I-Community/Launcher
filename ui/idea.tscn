@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://cu3ktnaltxb3s"]
+
+[ext_resource type="Texture2D" uid="uid://b8cqy2jlcjtr6" path="res://ui/forest_background.jpg" id="1_p7d5p"]
+[ext_resource type="PackedScene" uid="uid://dhw8gy470d6yd" path="res://ui/3d/player.blend" id="2_8aocf"]
+[ext_resource type="PackedScene" uid="uid://bm8iq85uk684a" path="res://ui/3d/player_slim.blend" id="3_1myqr"]
+[ext_resource type="PackedScene" uid="uid://darh53odqurqy" path="res://ui/3d/cape.blend" id="4_eq806"]
+
+[sub_resource type="Environment" id="Environment_eq806"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_m7aag"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_eq806"]
+font_size = 32
+
+[node name="UI" type="Control" unique_id=1912424304]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=76341438]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(320, 616)
+render_target_update_mode = 4
+
+[node name="World" type="Node3D" parent="SubViewport" unique_id=683606186]
+
+[node name="player" parent="SubViewport/World" unique_id=215478532 instance=ExtResource("2_8aocf")]
+
+[node name="player_slim" parent="SubViewport/World" unique_id=1955820381 instance=ExtResource("3_1myqr")]
+visible = false
+
+[node name="cape" parent="SubViewport/World" unique_id=264105864 instance=ExtResource("4_eq806")]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/World" unique_id=979855266]
+transform = Transform3D(0.70710695, -0.12885968, 0.69526607, 0, 0.98325497, 0.18223517, -0.7071066, -0.12885976, 0.6952664, 5.999996, 1.3000002, 6)
+projection = 1
+size = 7.66
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/World" unique_id=254417072]
+environment = SubResource("Environment_eq806")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1560784597]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer2" unique_id=581323238]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+color = Color(0.14, 0.14, 0.14, 0.73333335)
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer2/ColorRect" unique_id=1533974913]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2/ColorRect/MarginContainer" unique_id=1242009293]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2/ColorRect/MarginContainer/VBoxContainer" unique_id=861906752]
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("ViewportTexture_m7aag")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2" unique_id=490835985]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+texture = ExtResource("1_p7d5p")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2/TextureRect" unique_id=2066034982]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2/TextureRect/VBoxContainer" unique_id=895324248]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Profile" type="ColorRect" parent="HBoxContainer2/TextureRect/VBoxContainer/HBoxContainer" unique_id=2082115861]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0.31061712, 0.31061712, 0.3106171, 1)
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer2/TextureRect/VBoxContainer/HBoxContainer" unique_id=1323850103]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.5402284, 0.8808852, 0.45239347, 1)
+
+[node name="Label" type="Label" parent="HBoxContainer2/TextureRect/VBoxContainer/HBoxContainer/ColorRect" unique_id=466860956]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Jouer"
+label_settings = SubResource("LabelSettings_eq806")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="ColorRect" parent="HBoxContainer2/TextureRect/VBoxContainer/HBoxContainer" unique_id=1879511811]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0.31061712, 0.31061712, 0.3106171, 1)
