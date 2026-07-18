@@ -95,6 +95,8 @@ func _on_launch_button_pressed() -> void:
 	await mc_launcher._install(profile)
 	Log.info("Installation finished")
 	
+	var playingtime_path = copy_playingtime()
+	
 	var files_url: String = modpack.files_url
 	var files_task := DownloadTask.new()
 	files_task.url = files_url
@@ -115,8 +117,47 @@ func _on_launch_button_pressed() -> void:
 	files_data.store_var(files, false)
 	
 	var code = await mc_launcher._launch(profile, profile.authenticator)
+	Log.info("Minecraft: " + str(code))
+	
+	if not playingtime_path.is_empty():
+		var time_dir = ProjectSettings.globalize_path(playingtime_path.get_base_dir().path_join("time"))
+		DirAccess.make_dir_recursive_absolute(time_dir)
+		var playingtime_code = OS.create_process(playingtime_path, [code, time_dir])
+		Log.info("Playing Time: " + str(playingtime_code))
 	await get_tree().create_timer(1).timeout
-	get_tree().quit(code)
+	get_tree().quit()
+
+func copy_playingtime() -> String:
+	Log.info("PT - Copy playingtime")
+	var needperms := false
+	var playingtime_local_path: String = ""
+	var playingtime_global_path: String = ""
+	if OS.get_name() == "Windows":
+		playingtime_local_path = "res://playingtime/playing_time.exe"
+		playingtime_global_path = "user://playingtime/playing_time.exe"
+	elif OS.get_name() == "Linux":
+		needperms = true
+		playingtime_local_path = "res://playingtime/playing_time"
+		playingtime_global_path = "user://playingtime/playing_time"
+	playingtime_global_path = ProjectSettings.globalize_path(playingtime_global_path)
+	
+	if not FileAccess.file_exists(playingtime_local_path):
+		return ""
+	
+	if not FileAccess.file_exists(playingtime_global_path):
+		DirAccess.make_dir_recursive_absolute(playingtime_global_path.get_base_dir())
+		var original_file := FileAccess.open(playingtime_local_path, FileAccess.READ)
+		var copied_file := FileAccess.open(playingtime_global_path, FileAccess.WRITE)
+		
+		copied_file.store_buffer(original_file.get_buffer(original_file.get_length()))
+		if needperms:
+			Log.info("PT - Need perms")
+			var err = FileAccess.set_unix_permissions(playingtime_global_path, FileAccess.UNIX_WRITE_OWNER | FileAccess.UNIX_READ_OWNER | FileAccess.UNIX_READ_OTHER | FileAccess.UNIX_EXECUTE_OTHER | FileAccess.UNIX_EXECUTE_OWNER | FileAccess.UNIX_EXECUTE_GROUP)
+			if err != OK:
+				Log.error("PT - Failed to set unix perms: %d" % err)
+	
+	Log.info("PT - Playingtime copied")
+	return playingtime_global_path
 
 func update_modpack_installation(profile: MCProfile, previous_data: Dictionary, new_data: Dictionary):
 	var file_tasks: Array[DownloadTask] = []
