@@ -11,6 +11,7 @@ const MODPACKS_URL: String = "https://raw.githubusercontent.com/SMP2I-Community/
 @onready var ram_slider: HSlider = $RamContainer/RamSlider
 
 @onready var version_option_button: OptionButton = $HBoxContainer/VersionOptionButton
+@onready var time_label: Label = $TimeLabel
 
 var modpack_versions: DownloadTask
 var modpacks: Array[Dictionary] = []
@@ -31,6 +32,16 @@ func _ready() -> void:
 	modpack_versions.completed.connect(_on_versions_task_completed)
 	
 	HTTPClientPool.download(modpack_versions)
+	
+	var FOLDER_PATH = "user://playingtime/time"
+	var time_dir = DirAccess.open(FOLDER_PATH)
+	var playtime = 0
+	if time_dir != null:
+		for filename in time_dir.get_files():
+			var path = FOLDER_PATH.path_join(filename)
+			playtime += FileAccess.get_file_as_string(path).to_int()
+	
+	time_label.text = "Temps de jeu: %dm" % (playtime / 60)
 
 func _on_versions_task_completed(response: TaskResponse) -> void:
 	var data: Dictionary = response.json()

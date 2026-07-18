@@ -319,5 +319,13 @@ Raw sauce (Ah)
 Yo, boom, ah"
 label_settings = SubResource("LabelSettings_psj2o")
 
+[node name="TimeLabel" type="Label" parent="." unique_id=1731876596]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 85.0
+offset_right = 474.0
+offset_bottom = 108.0
+text = "Temps de jeu: 0s"
+
 [connection signal="pressed" from="HBoxContainer/LaunchButton" to="." method="_on_launch_button_pressed"]
 [connection signal="value_changed" from="RamContainer/RamSlider" to="." method="_on_ram_slider_value_changed"]
